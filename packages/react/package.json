@@ -7,10 +7,10 @@
   "homepage": "https://opace.agency/tools/seo/google-preferred-source-button-generator/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpaceDigitalAgency/preferred-source.git",
+    "url": "git+https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google.git",
     "directory": "packages/react"
   },
-  "bugs": "https://github.com/OpaceDigitalAgency/preferred-source/issues",
+  "bugs": "https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues",
   "keywords": [
     "google",
     "preferred-sources",

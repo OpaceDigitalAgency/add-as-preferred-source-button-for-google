@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "OpaceDigitalAgency/preferred-source" }],
+  "changelog": ["@changesets/changelog-github", { "repo": "OpaceDigitalAgency/add-as-preferred-source-button-for-google" }],
   "commit": false,
   "access": "public",
   "baseBranch": "main",

@@ -1,10 +1,12 @@
-# Google Preferred Sources button — packages for React, Next.js, Vue, Svelte, Astro and every other framework
+# Add as Preferred Source Button, Popup & Analytics for Google (SEO & AI Overviews)
+
+Google's official Preferred Sources button SDK wrapped for every major framework — React, Next.js, Vue, Svelte, Astro, a web component for everything else.
 
 > Free companion tools: [button generator](https://opace.agency/tools/seo/google-preferred-source-button-generator/) · [eligibility checker](https://opace.agency/tools/seo/google-preferred-source-checker/). Built by [Opace](https://www.opace.agency/).
 
 Every framework. One core. Google's official Preferred Sources button, done properly.
 
-[![CI](https://github.com/OpaceDigitalAgency/preferred-source/actions/workflows/ci.yml/badge.svg)](https://github.com/OpaceDigitalAgency/preferred-source/actions/workflows/ci.yml)
+[![CI](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml/badge.svg)](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml)
 [![npm — core](https://img.shields.io/npm/v/%40opace%2Fpreferred-source-core?label=core)](https://www.npmjs.com/package/@opace/preferred-source-core)
 [![npm — element](https://img.shields.io/npm/v/%40opace%2Fpreferred-source-element?label=element)](https://www.npmjs.com/package/@opace/preferred-source-element)
 [![npm — react](https://img.shields.io/npm/v/%40opace%2Freact-preferred-source?label=react)](https://www.npmjs.com/package/@opace/react-preferred-source)
@@ -53,10 +55,10 @@ Google's Preferred Sources feature lets a Search user mark your publication as a
 
 ## Links
 
-- **Live demo:** [opacedigitalagency.github.io/preferred-source](https://opacedigitalagency.github.io/preferred-source/)
+- **Live demo:** [opacedigitalagency.github.io/add-as-preferred-source-button-for-google](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/)
 - **Button generator:** [opace.agency/tools/seo/google-preferred-source-button-generator](https://opace.agency/tools/seo/google-preferred-source-button-generator/)
 - **Eligibility checker:** [opace.agency/tools/seo/google-preferred-source-checker](https://opace.agency/tools/seo/google-preferred-source-checker/)
-- **Using WordPress?** Install the [Preferred Source Popup plugin](https://opace.agency/tools/seo/google-preferred-source-button-generator/) instead — it wraps the same SDK with an admin UI.
+- **Using WordPress?** Install the [Add as Preferred Source Button, Popup & Analytics for Google (SEO & AI Overviews) plugin](https://opace.agency/tools/seo/google-preferred-source-button-generator/) instead — it wraps the same SDK with an admin UI.
 
 ## Contributing
 
