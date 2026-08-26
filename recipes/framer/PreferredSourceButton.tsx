@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState, type CSSProperties } from "react"
 import { addPropertyControls, ControlType } from "framer"
 
 /**
@@ -84,7 +84,7 @@ export default function PreferredSourceButton(props: {
         }
     }, [status, deeplink])
 
-    const base: React.CSSProperties = {
+    const base: CSSProperties = {
         display: "inline-flex",
         alignItems: "center",
         gap: "0.5em",
@@ -96,7 +96,7 @@ export default function PreferredSourceButton(props: {
         padding: "0.55em 1.1em",
         lineHeight: 1.2,
     }
-    const variants: Record<string, React.CSSProperties> = {
+    const variants: Record<string, CSSProperties> = {
         "google-default":
             theme === "dark"
                 ? { background: "#202124", color: "#e8eaed", border: "1px solid #5f6368", borderRadius: 4 }
