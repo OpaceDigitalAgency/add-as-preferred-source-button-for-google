@@ -4,7 +4,7 @@
   "description": "<preferred-source-button> web component for Google's Preferred Sources button. Works in any framework or plain HTML; SSR-safe; deeplink fallback when the SDK is blocked.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
-  "homepage": "https://opace.agency/tools/seo/google-preferred-source-button-generator/",
+  "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google.git",

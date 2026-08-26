@@ -2,7 +2,7 @@
 
 Google's official Preferred Sources button SDK wrapped for every major framework — React, Next.js, Vue, Svelte, Astro, a web component for everything else.
 
-> Free companion tools: [button generator](https://opace.agency/tools/seo/google-preferred-source-button-generator/) · [eligibility checker](https://opace.agency/tools/seo/google-preferred-source-checker/). Built by [Opace](https://www.opace.agency/).
+> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
 
 Every framework. One core. Google's official Preferred Sources button, done properly.
 
@@ -42,7 +42,7 @@ That is the whole integration: the component loads Google's SDK once, renders a 
 
 Google's Preferred Sources feature lets a Search user mark your publication as a source they want to see more of; selected sites appear more often in Top Stories with a "preferred" badge, and since mid-2026 the preference also carries into AI Overviews and AI Mode. More than 600,000 unique sources have been selected so far, and Google reports that users who select a source click through to it roughly twice as often. The implementation surface is small: one script, one attribute, two methods and a deeplink — [Google's documentation](https://developers.google.com/search/docs/appearance/preferred-sources) covers it in a page.
 
-> **Eligibility warning.** Domains and subdomains only. `www.example.com` and `news.example.com` qualify; `example.com/blog` does not. Your site must already resolve in Google's [source preferences tool](https://www.google.com/preferences/source) — check it in seconds with the free [eligibility checker](https://opace.agency/tools/seo/google-preferred-source-checker/).
+> **Eligibility warning.** Domains and subdomains only. `www.example.com` and `news.example.com` qualify; `example.com/blog` does not. Your site must already resolve in Google's [source preferences tool](https://www.google.com/preferences/source) — check it in seconds with the free [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/).
 
 > **What "tracking" means here — and what it can't mean.** Google's SDK exposes exactly two methods (`init`, `addPreferredSource`) and **no completion callback or event**. Nothing on the page can know whether the reader finished adding your site inside Google's popup. Every event this library emits (`ps-click`) measures **clicks on the trigger**, not confirmed additions. Treat the numbers accordingly.
 
@@ -56,9 +56,9 @@ Google's Preferred Sources feature lets a Search user mark your publication as a
 ## Links
 
 - **Live demo:** [opacedigitalagency.github.io/add-as-preferred-source-button-for-google](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/)
-- **Button generator:** [opace.agency/tools/seo/google-preferred-source-button-generator](https://opace.agency/tools/seo/google-preferred-source-button-generator/)
-- **Eligibility checker:** [opace.agency/tools/seo/google-preferred-source-checker](https://opace.agency/tools/seo/google-preferred-source-checker/)
-- **Using WordPress?** Install the [Add as Preferred Source Button, Popup & Analytics for Google (SEO & AI Overviews) plugin](https://opace.agency/tools/seo/google-preferred-source-button-generator/) instead — it wraps the same SDK with an admin UI.
+- **Button generator:** [opace.agency/tools/seo/google-preferred-source-button-generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/)
+- **Eligibility checker:** [opace.agency/tools/seo/google-preferred-source-checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/)
+- **Using WordPress?** Install the [Add as Preferred Source Button, Popup & Analytics for Google (SEO & AI Overviews) plugin](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) instead — it wraps the same SDK with an admin UI.
 
 ## Contributing
 
@@ -70,5 +70,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Short version: `pnpm install && pnpm bui
 
 ---
 Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/tools/seo/google-preferred-source-checker/) ·
-[Button generator](https://opace.agency/tools/seo/google-preferred-source-button-generator/).
+[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
+[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).

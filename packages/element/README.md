@@ -1,6 +1,6 @@
 # Google Preferred Sources button as a web component — works everywhere
 
-> Free companion tools: [button generator](https://opace.agency/tools/seo/google-preferred-source-button-generator/) · [eligibility checker](https://opace.agency/tools/seo/google-preferred-source-checker/). Built by [Opace](https://www.opace.agency/).
+> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
 
 `<preferred-source-button>` wraps Google's official Preferred Sources SDK in a single custom element: styled trigger, popup on click, deeplink fallback when the SDK is blocked, and analytics events that honestly report clicks. Use it in plain HTML, Angular, or any framework without a dedicated wrapper.
 
@@ -72,9 +72,9 @@ The class file touches no globals at import time and `register.js` no-ops outsid
 
 > **What "tracking" means here — and what it can't mean.** Google's SDK exposes exactly two methods (`init`, `addPreferredSource`) and **no completion callback or event**. Nothing on the page can know whether the reader finished adding your site inside Google's popup. Every event this library emits (`ps-click`) measures **clicks on the trigger**, not confirmed additions. Treat the numbers accordingly.
 
-[Live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Eligibility checker](https://opace.agency/tools/seo/google-preferred-source-checker/) · [Button generator](https://opace.agency/tools/seo/google-preferred-source-button-generator/)
+[Live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/)
 
 ---
 Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/tools/seo/google-preferred-source-checker/) ·
-[Button generator](https://opace.agency/tools/seo/google-preferred-source-button-generator/).
+[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
+[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).

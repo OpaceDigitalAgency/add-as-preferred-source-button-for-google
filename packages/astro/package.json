@@ -4,7 +4,7 @@
   "description": "Astro integration and components for Google's Preferred Sources button: site-wide script injection, SSR-rendered button, deeplink fallback, honest ps-click events.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
-  "homepage": "https://opace.agency/tools/seo/google-preferred-source-button-generator/",
+  "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google.git",

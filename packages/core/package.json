@@ -4,7 +4,7 @@
   "description": "Dependency-free TypeScript core for Google's Preferred Sources button: idempotent SDK loader, SSR guard, deeplink fallback, honest click events.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
-  "homepage": "https://opace.agency/tools/seo/google-preferred-source-button-generator/",
+  "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google.git",
