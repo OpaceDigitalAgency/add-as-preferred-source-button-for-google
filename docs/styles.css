@@ -95,6 +95,26 @@ footer {
 .hero-demo {
   margin: 1.5rem 0;
 }
+
+.demo-capture {
+  width: min(100%, 952px);
+  margin: 2rem auto 0;
+}
+
+.demo-capture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+
+.demo-capture figcaption {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: left;
+}
 .cta-row {
   display: flex;
   gap: 1.25rem;
