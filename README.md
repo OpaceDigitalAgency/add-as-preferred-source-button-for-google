@@ -1,74 +1,102 @@
-# Add as Preferred Source Button, Popup & Analytics for Google (SEO & AI Overviews)
+# Preferred Sources button packages for React, Vue, Svelte, Astro and the web
 
-Google's official Preferred Sources button SDK wrapped for every major framework — React, Next.js, Vue, Svelte, Astro, a web component for everything else.
+An open-source TypeScript suite for adding Google's Preferred Sources button to publisher sites, with SSR-safe framework bindings and a deeplink fallback when the external SDK cannot render.
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+**Release status, 26 August 2026:** GitHub release **v1.0.0** is public. The six `@opace` packages have been built and tested (**70/70 tests**) but are **not published to npm yet**. Use this repository and its pnpm workspace today; the npm commands below are labelled for after publication.
 
-Every framework. One core. Google's official Preferred Sources button, done properly.
+[Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Live component demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Opace SEO services](https://opace.agency/services/seo/)
 
-[![CI](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml/badge.svg)](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml)
-[![npm — core](https://img.shields.io/npm/v/%40opace%2Fpreferred-source-core?label=core)](https://www.npmjs.com/package/@opace/preferred-source-core)
-[![npm — element](https://img.shields.io/npm/v/%40opace%2Fpreferred-source-element?label=element)](https://www.npmjs.com/package/@opace/preferred-source-element)
-[![npm — react](https://img.shields.io/npm/v/%40opace%2Freact-preferred-source?label=react)](https://www.npmjs.com/package/@opace/react-preferred-source)
-[![npm — vue](https://img.shields.io/npm/v/%40opace%2Fvue-preferred-source?label=vue)](https://www.npmjs.com/package/@opace/vue-preferred-source)
-[![npm — svelte](https://img.shields.io/npm/v/%40opace%2Fsvelte-preferred-source?label=svelte)](https://www.npmjs.com/package/@opace/svelte-preferred-source)
-[![npm — astro](https://img.shields.io/npm/v/%40opace%2Fastro-preferred-source?label=astro)](https://www.npmjs.com/package/@opace/astro-preferred-source)
-[![MIT licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
+[![CI](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml/badge.svg)](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml) [![MIT licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 
 ## Framework coverage
 
-| Framework | Package / recipe | Install |
-|---|---|---|
-| Vanilla / any CMS | [`@opace/preferred-source-element`](packages/element/) | `npm i @opace/preferred-source-element` |
-| Low-level TS core | [`@opace/preferred-source-core`](packages/core/) | `npm i @opace/preferred-source-core` |
-| React / Next.js | [`@opace/react-preferred-source`](packages/react/) | `npm i @opace/react-preferred-source` |
-| Vue / Nuxt | [`@opace/vue-preferred-source`](packages/vue/) | `npm i @opace/vue-preferred-source` |
-| Svelte / SvelteKit | [`@opace/svelte-preferred-source`](packages/svelte/) | `npm i @opace/svelte-preferred-source` |
-| Astro | [`@opace/astro-preferred-source`](packages/astro/) | `npm i @opace/astro-preferred-source` |
-| Angular / anything else | the web component | `npm i @opace/preferred-source-element` |
-| Hugo · Jekyll · Eleventy · Ghost · Webflow · Framer · Shopify | [`recipes/`](recipes/) | copy-paste |
+| Use case                                                   | Source workspace                        | npm command after publication           |
+| ---------------------------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Low-level TypeScript                                       | [`packages/core`](packages/core/)       | `npm i @opace/preferred-source-core`    |
+| Web component, vanilla JS or Angular                       | [`packages/element`](packages/element/) | `npm i @opace/preferred-source-element` |
+| React and Next.js                                          | [`packages/react`](packages/react/)     | `npm i @opace/react-preferred-source`   |
+| Vue 3 and Nuxt                                             | [`packages/vue`](packages/vue/)         | `npm i @opace/vue-preferred-source`     |
+| Svelte and SvelteKit                                       | [`packages/svelte`](packages/svelte/)   | `npm i @opace/svelte-preferred-source`  |
+| Astro integration and components                           | [`packages/astro`](packages/astro/)     | `npm i @opace/astro-preferred-source`   |
+| Hugo, Jekyll, Eleventy, Ghost, Webflow, Framer and Shopify | [`recipes/`](recipes/)                  | No package planned                      |
 
-## 30-second quick start
+Angular and other frameworks can use the web component. The recipes are reference implementations, not platform-certified integrations.
 
-```html
-<script type="module" src="https://unpkg.com/@opace/preferred-source-element/dist/register.js"></script>
+## Use the source workspace now
 
-<preferred-source-button></preferred-source-button>
+```sh
+git clone https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google.git
+cd add-as-preferred-source-button-for-google
+pnpm install
+pnpm build
+pnpm test
 ```
 
-That is the whole integration: the component loads Google's SDK once, renders a styled trigger, opens Google's popup on click, and swaps itself for the documented deeplink when the SDK is blocked.
+Import a workspace package from an application in this monorepo, or use a recipe. Do not use `npm install @opace/...` or unpkg until the packages have been published.
 
-## What Preferred Sources is
+## How it works
 
-Google's Preferred Sources feature lets a Search user mark your publication as a source they want to see more of; selected sites appear more often in Top Stories with a "preferred" badge, and since mid-2026 the preference also carries into AI Overviews and AI Mode. More than 600,000 unique sources have been selected so far, and Google reports that users who select a source click through to it roughly twice as often. The implementation surface is small: one script, one attribute, two methods and a deeplink — [Google's documentation](https://developers.google.com/search/docs/appearance/preferred-sources) covers it in a page.
+The dependency-free core loads the documented Preferred Sources SDK once, protects server renders from browser-only work, and provides the official `https://www.google.com/preferences/source?q=<domain>` link as a fallback. The element and framework packages are thin bindings over that core.
 
-> **Eligibility warning.** Domains and subdomains only. `www.example.com` and `news.example.com` qualify; `example.com/blog` does not. Your site must already resolve in Google's [source preferences tool](https://www.google.com/preferences/source) — check it in seconds with the free [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/).
+The SDK has only two documented methods: `init({ theme, lang })` and `addPreferredSource()`. Static markup can use auto mode with `google-add-preferred-source-btn`; dynamic interfaces use manual mode by default because Google's later-DOM scan behaviour is undocumented.
 
-> **What "tracking" means here — and what it can't mean.** Google's SDK exposes exactly two methods (`init`, `addPreferredSource`) and **no completion callback or event**. Nothing on the page can know whether the reader finished adding your site inside Google's popup. Every event this library emits (`ps-click`) measures **clicks on the trigger**, not confirmed additions. Treat the numbers accordingly.
+> **Eligibility.** Preferred Sources applies to domains and subdomains, not subdirectories. Check that the precise hostname appears in Google's [source preferences tool](https://www.google.com/preferences/source) before adding a button. `example.com/blog` is not separately eligible.
 
-## Why one core plus thin wrappers
+> **What “tracking” means here.** Google's SDK has no completion callback or event. `ps-click` measures a click on your trigger, never a confirmed addition inside Google's popup.
 
-- The SDK surface is two methods and one attribute. There is exactly one correct way to load it idempotently, guard SSR and fall back to the deeplink — written once in a dependency-free core, inherited by every wrapper.
-- The wrappers are each under 150 lines. A patch to core fixes all of them at once.
-- The web component covers Angular and every framework without a dedicated wrapper.
-- The click-event API is honest by design: `ps-click` reports a click, never a "conversion", because the SDK cannot report one.
+## Architecture and fallbacks
 
-## Links
+| Layer              | Responsibility                                                                                                |
+| ------------------ | ------------------------------------------------------------------------------------------------------------- |
+| Core               | SDK loading and adoption, SSR guards, domain normalisation, auto attributes, deeplink fallback and `ps-click` |
+| Element            | `<preferred-source-button>` for any HTML-capable framework, with fallback and accessible native controls      |
+| Framework packages | React hook/component, Vue component/composable/plugin, Svelte component, Astro integration/components         |
+| Recipes            | Short copy-paste patterns for platforms without a package                                                     |
 
-- **Live demo:** [opacedigitalagency.github.io/add-as-preferred-source-button-for-google](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/)
-- **Button generator:** [opace.agency/tools/seo/google-preferred-source-button-generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/)
-- **Eligibility checker:** [opace.agency/tools/seo/google-preferred-source-checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/)
-- **Using WordPress?** Install the [Add as Preferred Source Button, Popup & Analytics for Google (SEO & AI Overviews) plugin](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) instead — it wraps the same SDK with an admin UI.
+If the SDK errors, times out, is blocked by consent tooling or does not render an auto-mode button, supported bindings provide or switch to the deeplink. A late SDK load can still make later clicks open the popup.
 
-## Contributing
+## Privacy, external SDK and accessibility
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Short version: `pnpm install && pnpm build && pnpm test`, add a changeset, keep the honesty rules.
+The suite does not include an analytics backend or send application data to Opace. It loads Google's publisher SDK only after the relevant client-side component connects or is configured. Your site controls consent, CSP and any analytics listener attached to `ps-click`.
+
+The element uses native buttons or links, a visible focus style and reduced-motion handling. When you override its colours, validate contrast in your own theme. Google controls the popup and its availability.
+
+## Compatibility
+
+- Node.js 18 or later; CI runs Node 20.
+- React 18+, Vue 3.3+, Svelte 4 or 5, and Astro 4 or 5, as declared by the individual package metadata.
+- Browser rendering is required for the popup. SSR imports are safe, but server-only pages use an explicit deeplink if required.
+- A recognised, eligible hostname is required for Google's own UI to render. Localhost and staging are useful for integration checks but cannot prove eligibility.
+
+## Troubleshooting and FAQ
+
+### Why do I see a link instead of the popup button?
+
+The SDK may be blocked, unavailable, or unable to render for the current hostname. Test the generated deeplink, inspect CSP and consent controls, then confirm eligibility on the live domain.
+
+### Can this confirm that a reader added my site?
+
+No. Google exposes no completion signal. Record only your own click event and describe it as a click.
+
+### When can I install from npm or unpkg?
+
+After the six packages have been published. Until then, use the workspace instructions above. The maintained npm package names are shown in the coverage table so the publication substitution is mechanical.
+
+## Related Opace products
+
+- [Preferred Sources product hub](https://opace.agency/add-as-preferred-source-button-for-google/)
+- [WordPress plugin repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin)
+- [Chrome extension repository](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension)
+- [Opace Digital Agency on GitHub](https://github.com/OpaceDigitalAgency)
+
+## Support, security and contributing
+
+Use [GitHub issues](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues) for reproducible bugs and feature requests. Report security-sensitive issues privately to Opace rather than opening a public issue. Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a change; run `pnpm build`, `pnpm test`, `pnpm typecheck` and `pnpm lint`.
 
 ## Licence
 
-[MIT](LICENSE) © Opace Ltd. Independently developed by Opace Digital Agency and not affiliated with, endorsed by or sponsored by Google.
+[MIT](LICENSE) © Opace Ltd. This project is independently developed by Opace Digital Agency and is not affiliated with, endorsed by or sponsored by Google.
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+Source: [OpaceDigitalAgency/add-as-preferred-source-button-for-google](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · Support: [GitHub issues](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues) · Built by [Opace](https://opace.agency/), a UK digital agency.

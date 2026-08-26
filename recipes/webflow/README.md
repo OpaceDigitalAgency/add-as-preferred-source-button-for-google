@@ -1,37 +1,34 @@
-# Google Preferred Sources button for Webflow
+# Add as Preferred Source Button for Webflow
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+This recipe uses Webflow custom code for the SDK and an Embed element for Google's documented automatic-mode placeholder.
 
-> **Eligibility first.** Preferred Sources works for domains and subdomains only — `www.example.com` and `news.example.com` qualify, `example.com/blog` does not. Check yours in the free [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) before you paste anything.
+> **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. A `webflow.io` subdomain is not your publication domain.
 
-Note: your site must be on a connected custom domain (a subdomain of `webflow.io` is Google's domain, not yours).
+## Add the SDK and placement
 
-## Install
-
-1. **Site Settings → Custom Code → Head Code**, paste and save:
+1. Open **Site Settings → Custom Code → Head Code** and add:
 
 ```html
 <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 ```
 
-2. In the Designer, drag an **Embed** element where the button should appear and paste:
+2. In Designer, place an **Embed** element at the intended button position and add:
 
 ```html
 <div google-add-preferred-source-btn data-theme="light"></div>
 ```
 
-3. Publish. The snippet is 55 characters, nowhere near Webflow's 50,000-character embed limit.
-4. Dark section? Use `data-theme="dark"`.
+3. Use `data-theme="dark"` where the surrounding section needs Google's dark button.
+4. Publish to the connected custom domain.
 
-## Fallback
+## Expected behaviour and validation
 
-Add a normal Webflow link block pointing at the documented deeplink for no-JS visitors:
+Google's automatic mode scans the Embed element after the page loads. On a public eligible domain, inspect the deployed page to confirm the placeholder is visible and Google's button has rendered. Add a regular link for no-JavaScript visitors and confirm that its `q` value is the same eligible domain:
 
 ```text
 https://www.google.com/preferences/source?q=example.com
 ```
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+[Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Google implementation guide](https://developers.google.com/search/docs/appearance/preferred-sources) · [Source repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [Opace support](https://opace.agency/add-as-preferred-source-button-for-google/) · [MIT licence](../../LICENSE)

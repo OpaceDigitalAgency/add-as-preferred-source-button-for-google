@@ -1,26 +1,26 @@
-# Google Preferred Sources button for Hugo
+# Add as Preferred Source Button for Hugo
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+This partial outputs Google's documented automatic-mode placeholder and its no-JavaScript deeplink.
 
-> **Eligibility first.** Preferred Sources works for domains and subdomains only — `www.example.com` and `news.example.com` qualify, `example.com/blog` does not. Check yours in the free [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) before you paste anything.
+> **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.
 
-## Install
+## Add the partial
 
 1. Copy [`preferred-source.html`](preferred-source.html) into `layouts/partials/`.
-2. Call it where the button should appear (a footer, an article template):
+2. Call it at the intended button position, for example in an article template or footer:
 
 ```go-html-template
 {{ partial "preferred-source.html" (dict "theme" "dark" "lang" "en" "ctx" .) }}
 ```
 
-3. Pass `"ctx" .` so the partial emits the SDK `<script>` only once per page even when the partial is used twice. Without it, the script is emitted per call (harmless — the SDK is idempotent — but untidy).
-4. Rebuild. The button renders wherever the partial is placed.
+3. Pass `"ctx" .` when using the partial so its page store emits the SDK script once. Without `ctx`, the partial still outputs the script for each call.
 
-## Fallback
+## Expected behaviour and validation
 
-The partial includes a `<noscript>` deeplink to `https://www.google.com/preferences/source?q=<your-domain>`, which is Google's documented no-JS route. Replace the `q` value with a hard-coded domain if your `baseURL` includes a path.
+The partial adds the SDK and a `google-add-preferred-source-btn` element. On a public eligible domain, inspect the generated page to confirm the placeholder is visible and Google's button has rendered. The `<noscript>` fallback derives its query value from the configured site URL; check that it resolves to the intended domain before release.
+
+If the fallback shows the wrong host, check `baseURL` in `hugo.toml` or the equivalent site configuration. Run this check against the Hugo release pinned by your project; this reference does not claim a separately tested Hugo version.
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+[Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Google implementation guide](https://developers.google.com/search/docs/appearance/preferred-sources) · [Source repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [Opace support](https://opace.agency/add-as-preferred-source-button-for-google/) · [MIT licence](../../LICENSE)

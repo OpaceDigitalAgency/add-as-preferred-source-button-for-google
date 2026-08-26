@@ -1,32 +1,31 @@
-# Google Preferred Sources button for Shopify
+# Add as Preferred Source Button for Shopify
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+This Liquid snippet outputs Google's documented automatic-mode placeholder and a no-JavaScript deeplink.
 
-> **Eligibility first.** Preferred Sources works for domains and subdomains only — `www.example.com` and `news.example.com` qualify, `example.com/blog` does not. Check yours in the free [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) before you paste anything.
+> **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Shopify blog paths such as `/blogs/news` are not separate sources; the snippet uses your shop domain.
 
-Shopify blogs live at `/blogs/news` — a subdirectory, which is not separately eligible. That is fine: what gets preferred is your **domain** (`{{ shop.domain }}`), so the button still does its job wherever you place it.
+## Add the snippet
 
-## Install
-
-1. In admin: **Online Store → Themes → Edit code**.
-2. Under **Snippets**, create `preferred-source.liquid` and paste the contents of [`preferred-source.liquid`](preferred-source.liquid).
-3. In **Layout → theme.liquid**, add the SDK script inside `<head>`:
+1. In Shopify admin, open **Online Store → Themes → Edit code**.
+2. Under **Snippets**, create `preferred-source.liquid` and paste [`preferred-source.liquid`](preferred-source.liquid).
+3. In **Layout → theme.liquid**, add the SDK inside `<head>`:
 
 ```liquid
 <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 ```
 
-4. Render the snippet where the button should appear (article template, footer):
+4. Render the snippet at the intended position, for example in an article template or footer:
 
 ```liquid
 {% render 'preferred-source', theme: 'light', lang: 'en' %}
 ```
 
-## Fallback
+## Expected behaviour and validation
 
-The snippet includes a `<noscript>` deeplink built from `{{ shop.domain }}` — Google's documented no-JS route.
+Google's automatic mode scans the snippet's `google-add-preferred-source-btn` element. On a public eligible shop domain, inspect the published page to confirm the placeholder is visible and Google's button has rendered. The fallback uses `{{ shop.domain }}`; verify that it is the domain you confirmed in Google's source preferences tool.
+
+Test in an unpublished theme preview first, then repeat the check on the public shop domain. Keep the snippet and `theme.liquid` change in your theme source or migration notes so a theme replacement does not silently remove them.
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+[Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Google implementation guide](https://developers.google.com/search/docs/appearance/preferred-sources) · [Source repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [Opace support](https://opace.agency/add-as-preferred-source-button-for-google/) · [MIT licence](../../LICENSE)

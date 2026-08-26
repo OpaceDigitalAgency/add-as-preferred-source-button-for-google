@@ -1,31 +1,32 @@
-# Google Preferred Sources button for Jekyll
+# Add as Preferred Source Button for Jekyll
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+This include outputs Google's documented automatic-mode placeholder and a no-JavaScript deeplink.
 
-> **Eligibility first.** Preferred Sources works for domains and subdomains only — `www.example.com` and `news.example.com` qualify, `example.com/blog` does not. Check yours in the free [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) before you paste anything.
+> **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.
 
-## Install
+## Add the include
 
 1. Copy [`preferred-source.html`](preferred-source.html) into `_includes/`.
-2. Add the SDK script once, in your head include (`_includes/head.html` or your theme's equivalent):
+2. Add the SDK once in `_includes/head.html` or the theme's equivalent:
 
 ```html
 <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 ```
 
-3. Place the button wherever you want it:
+3. Add the include at the intended button position:
 
 ```liquid
 {% include preferred-source.html theme="dark" lang="en" %}
 ```
 
-4. If you cannot edit the head, pass `include_script=true` to the include instead — the SDK loads exactly once either way.
+4. If the head cannot be edited, set `include_script=true` on the include.
 
-## Fallback
+## Expected behaviour and validation
 
-The include renders a `<noscript>` deeplink built from `site.url`. Hard-code the domain in the `q` parameter if your `site.url` is unusual.
+Google's automatic mode scans the included `google-add-preferred-source-btn` element. On a public eligible domain, inspect the deployed page to confirm the placeholder is visible and Google's button has rendered. The fallback derives its query from `site.url`; verify that it contains the intended domain and test the link with JavaScript disabled.
+
+The include uses built-in Liquid syntax and needs no custom Jekyll plugin, so it suits GitHub Pages builds. A remote theme may control the head include; use that theme's documented override point and confirm the SDK appears only once in the generated HTML.
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+[Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Google implementation guide](https://developers.google.com/search/docs/appearance/preferred-sources) · [Source repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [Opace support](https://opace.agency/add-as-preferred-source-button-for-google/) · [MIT licence](../../LICENSE)

@@ -1,42 +1,46 @@
-# Google Preferred Sources button for Eleventy
+# Add as Preferred Source Button for Eleventy
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+This reference recipe registers a shortcode that returns Google's documented automatic-mode placeholder.
 
-> **Eligibility first.** Preferred Sources works for domains and subdomains only — `www.example.com` and `news.example.com` qualify, `example.com/blog` does not. Check yours in the free [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) before you paste anything.
+> **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.
 
-## Install
+## Add the shortcode
 
 1. Copy [`preferred-source-shortcode.js`](preferred-source-shortcode.js) into your project and register it:
 
 ```js
 // .eleventy.js
-const preferredSource = require('./preferred-source-shortcode.js');
+const preferredSource = require("./preferred-source-shortcode.js");
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addShortcode('preferredSource', preferredSource);
+  eleventyConfig.addShortcode("preferredSource", preferredSource);
 };
 ```
 
-2. Add the SDK script once, in your base layout's `<head>`:
+2. Add the SDK once in the base layout's `<head>`:
 
 ```html
 <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 ```
 
-3. Use the shortcode in any template:
+3. Place the shortcode in the template where readers should see the button:
 
 ```njk
 {% preferredSource "dark", "en" %}
 ```
 
-## Fallback
+## Expected behaviour and validation
 
-Add the documented no-JS deeplink wherever it suits (an email footer, a plain link):
+Google's automatic mode scans for the generated `google-add-preferred-source-btn` element. On a public eligible domain, inspect the deployed page to confirm the placeholder is visible and Google's button has rendered. Test the matching fallback link with JavaScript disabled or the SDK blocked.
 
 ```html
-<a href="https://www.google.com/preferences/source?q=example.com" target="_blank" rel="noopener noreferrer">Add as a preferred source on Google</a>
+<a
+  href="https://www.google.com/preferences/source?q=example.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  >Add as a preferred source on Google</a
+>
 ```
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+[Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Google implementation guide](https://developers.google.com/search/docs/appearance/preferred-sources) · [Source repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [Opace support](https://opace.agency/add-as-preferred-source-button-for-google/) · [MIT licence](../../LICENSE)

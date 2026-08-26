@@ -1,47 +1,44 @@
-# Google Preferred Sources button for Svelte / SvelteKit
+# Preferred Sources button for Svelte and SvelteKit
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+`@opace/svelte-preferred-source` is a Svelte component that loads the SDK in `onMount`, emits `ps-click`, and switches to the documented deeplink if the SDK is unavailable.
 
-`@opace/svelte-preferred-source` is Google's official Preferred Sources button as a single Svelte component: SDK loads in `onMount`, deeplink fallback when blocked, `ps-click` events that honestly report clicks. Written in Svelte-4 syntax, which Svelte 5 accepts.
+**Status:** built and tested in this repository, but **not published to npm**. The future command is `npm i @opace/svelte-preferred-source`; use the workspace first.
 
-## Install
+## Use from this repository
 
 ```sh
-npm i @opace/svelte-preferred-source
+pnpm install
+pnpm --filter @opace/svelte-preferred-source build
 ```
-
-## Usage
 
 ```svelte
 <script>
   import { PreferredSourceButton } from '@opace/svelte-preferred-source';
 </script>
+
 <PreferredSourceButton theme="light" variant="neutral" on:ps-click={track} />
 ```
 
-## Props
+## Requirements and limits
 
-| Prop | Type | Default |
-|---|---|---|
-| `theme` | `'light' \| 'dark'` | `'light'` |
-| `lang` | `string` | browser language |
-| `mode` | `'manual' \| 'auto'` | `'manual'` — `'auto'` renders the bare attributed `<div>` |
-| `label` | `string` | `'Add as a preferred source on Google'` (slot overrides) |
-| `variant` | `'google-default' \| 'google-colours' \| 'neutral'` | `'google-default'` |
-| `domain` | `string` | current hostname |
-| `hrefFallback` | `string` | computed deeplink |
+- Svelte 4 or 5 and Node.js 18+ for development.
+- SvelteKit renders the button shell on the server; SDK work begins on mount.
+- Props include `theme`, `lang`, `mode`, `label`, `variant`, `domain` and `hrefFallback`.
+- Auto mode is best for static markup; manual mode is the default for dynamic UI.
 
-Dispatches `ps-click` with a `PsClickDetail` payload.
+| Prop / event                     | Default                                     | Notes                                                                         |
+| -------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------- |
+| `theme`, `lang`, `domain`        | `light`, browser language, current hostname | SDK configuration and fallback hostname.                                      |
+| `mode`                           | `manual`                                    | `auto` renders the attributed static target.                                  |
+| `label`, slot, `variant`         | Standard label, none, `google-default`      | The slot replaces the label; variants include `google-colours` and `neutral`. |
+| `hrefFallback`                   | Computed deeplink                           | Overrides the fallback target.                                                |
+| `renderTimeoutMs`                | `4000` ms                                   | Auto-mode time allowed after SDK load before fallback.                        |
+| `on:ps-click` / `on:ps-fallback` | None                                        | Receives click detail or a `blocked`/`no-render` fallback reason.             |
 
-## SSR / SvelteKit note
+> **Limitation.** Google's SDK has no completion callback or event. `ps-click` measures a trigger click, not a confirmed addition.
 
-SvelteKit's server render outputs the button shell; the SDK loads on mount. No `browser` guard needed in your code — the component and the core handle it.
-
-> **What "tracking" means here — and what it can't mean.** Google's SDK exposes exactly two methods (`init`, `addPreferredSource`) and **no completion callback or event**. Nothing on the page can know whether the reader finished adding your site inside Google's popup. Every event this library emits (`ps-click`) measures **clicks on the trigger**, not confirmed additions. Treat the numbers accordingly.
-
-[Live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/)
+See the [root README](../../README.md) for consent, CSP, eligibility and fallback guidance.
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+Source: [suite repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · Support: [GitHub issues](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues) · [Live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [MIT licence](../../LICENSE)

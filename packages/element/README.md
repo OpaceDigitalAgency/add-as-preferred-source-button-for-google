@@ -1,80 +1,56 @@
-# Google Preferred Sources button as a web component — works everywhere
+# Preferred Sources web component
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+`<preferred-source-button>` brings the official popup trigger, deeplink fallback and `ps-click` event to plain HTML, Angular and other HTML-capable frameworks.
 
-`<preferred-source-button>` wraps Google's official Preferred Sources SDK in a single custom element: styled trigger, popup on click, deeplink fallback when the SDK is blocked, and analytics events that honestly report clicks. Use it in plain HTML, Angular, or any framework without a dedicated wrapper.
+**Status:** built and tested in this repository, but **not published to npm**. Do not use unpkg or `npm i @opace/preferred-source-element` until publication.
 
-## Install
-
-```html
-<script type="module" src="https://unpkg.com/@opace/preferred-source-element/dist/register.js"></script>
-```
-
-or via npm:
+## Use from this repository
 
 ```sh
-npm i @opace/preferred-source-element
+pnpm install
+pnpm --filter @opace/preferred-source-element build
 ```
 
 ```js
-import '@opace/preferred-source-element/register'; // defines the element
-// or: import { PreferredSourceButton } from '@opace/preferred-source-element'; customElements.define(...)
+import "@opace/preferred-source-element/register";
 ```
-
-## Usage
 
 ```html
-<preferred-source-button></preferred-source-button>
-
-<preferred-source-button theme="dark" lang="de" variant="google-colours"
-  label="Bei Google als bevorzugte Quelle hinzufügen"></preferred-source-button>
-
-<preferred-source-button variant="neutral"
-  style="--ps-bg:#111; --ps-colour:#fff; --ps-radius:8px;"></preferred-source-button>
-
-<script>
-  document.querySelector('preferred-source-button')
-    .addEventListener('ps-click', (e) => gtag?.('event', 'preferred_source_click', e.detail));
-</script>
+<preferred-source-button
+  theme="dark"
+  variant="google-colours"
+></preferred-source-button>
 ```
 
-## Attributes
+Listen for `ps-click` to record a trigger click. `ps-ready` reports SDK readiness; `ps-fallback` reports that the element changed to Google's deeplink because the SDK was blocked or did not render.
 
-| Attribute | Values | Default | Notes |
-|---|---|---|---|
-| `theme` | `light` \| `dark` | `light` | Passed to Google's `init()` / `data-theme` |
-| `lang` | ISO code | browser language | Passed to `init()` / `data-lang` |
-| `mode` | `manual` \| `auto` | `manual` | `auto` hosts Google's own rendered button |
-| `label` | string | `Add as a preferred source on Google` | Visible text and accessible name |
-| `variant` | `google-default` \| `google-colours` \| `neutral` | `google-default` | `google-colours` is the blue → green hover-lift style; `neutral` is themed via custom properties |
-| `domain` | hostname | `location.hostname` | Used for the deeplink and event detail |
-| `href-fallback` | URL | computed deeplink | Used verbatim — e.g. to force the apex domain |
-| `disabled` | boolean attribute | absent | Clicks ignored |
-| `render-timeout` | ms | `4000` | Auto mode: how long Google gets **after the SDK loads** to paint into the container before the deeplink fallback takes over (`ps-fallback` with `reason: 'no-render'`) |
+## Attributes and limits
 
-## Events
+`theme`, `lang`, `mode`, `label`, `variant`, `domain`, `href-fallback`, `disabled` and `render-timeout` are supported. `mode="manual"` is the default for dynamic UI. `mode="auto"` lets Google's renderer use the attributed light-DOM element and falls back if no button appears.
 
-| Event | Detail | Fires |
-|---|---|---|
-| `ps-click` | `{outcome, mode, theme, lang, domain}` | On activation, before fulfilment |
-| `ps-ready` | `{mode}` | SDK loaded |
-| `ps-fallback` | `{reason}` | Component switched to the deeplink anchor — `reason` is `'blocked'` (script failed/timed out) or `'no-render'` (script loaded but painted nothing within `render-timeout`) |
+| Attribute                  | Default                          | Purpose                                                                                  |
+| -------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------- |
+| `theme` / `lang`           | `light` / browser language       | Passed to the documented SDK configuration.                                              |
+| `mode`                     | `manual`                         | `auto` renders Google's attributed target; manual mode renders this component's trigger. |
+| `label` / `variant`        | Default label / `google-default` | Sets visible text and one of `google-default`, `google-colours` or `neutral`.            |
+| `domain` / `href-fallback` | Current hostname / computed link | Sets the preferred hostname or an explicit fallback URL.                                 |
+| `disabled`                 | Absent                           | Prevents trigger activation.                                                             |
+| `render-timeout`           | `4000` ms                        | Auto-mode time allowed after SDK load before a no-render fallback.                       |
 
-All bubble and cross the shadow boundary. They are authored by this component — the Google SDK emits no events.
+| Event         | Meaning                                                                               |
+| ------------- | ------------------------------------------------------------------------------------- |
+| `ps-click`    | A user activated the trigger; its detail includes mode, theme, language and domain.   |
+| `ps-ready`    | The SDK is ready for the selected mode.                                               |
+| `ps-fallback` | The component switched to the deeplink because the SDK was blocked or did not render. |
 
-## Styling
+The component uses a native button or link, visible focus styles and reduced-motion handling. Validate contrast when overriding `--ps-*` properties. It is safe to import in SSR bundles, but server output remains an unknown custom element until client hydration.
 
-Fifteen CSS custom properties (`--ps-bg`, `--ps-colour`, `--ps-radius`, `--ps-font-family`, `--ps-hover-bg`, `--ps-lift`, `--ps-focus-ring` …) plus `::part(button)`, `::part(fallback)` and `::part(container)` for full override. The default variants meet WCAG AA at the default 0.875rem/500 label size; if you override colours, contrast is your responsibility. `prefers-reduced-motion: reduce` disables the hover lift.
+Style with `--ps-bg`, `--ps-colour`, `--ps-radius`, `--ps-font-family`, `--ps-hover-bg`, `--ps-lift` and `--ps-focus-ring`, or with `::part(button)`, `::part(fallback)` and `::part(container)`.
 
-## SSR
+> **Limitation.** Google's SDK has no completion callback or event. `ps-click` measures a trigger click, not a confirmed addition.
 
-The class file touches no globals at import time and `register.js` no-ops outside the browser, so importing in SSR bundles is safe. Servers render `<preferred-source-button>` as an unknown inline element until hydration.
-
-> **What "tracking" means here — and what it can't mean.** Google's SDK exposes exactly two methods (`init`, `addPreferredSource`) and **no completion callback or event**. Nothing on the page can know whether the reader finished adding your site inside Google's popup. Every event this library emits (`ps-click`) measures **clicks on the trigger**, not confirmed additions. Treat the numbers accordingly.
-
-[Live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/)
+See the [live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) and the [root README](../../README.md) for requirements, privacy and troubleshooting.
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+Source: [suite repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · Support: [GitHub issues](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues) · [Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [MIT licence](../../LICENSE)

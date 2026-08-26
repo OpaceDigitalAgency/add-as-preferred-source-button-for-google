@@ -1,37 +1,39 @@
-# Google Preferred Sources button for Ghost
+# Add as Preferred Source Button for Ghost
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+This recipe uses Ghost code injection for the SDK and an HTML card for Google's documented automatic-mode placeholder.
 
-> **Eligibility first.** Preferred Sources works for domains and subdomains only — `www.example.com` and `news.example.com` qualify, `example.com/blog` does not. Check yours in the free [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) before you paste anything.
+> **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.
 
-## Install
+## Add the SDK and placement
 
-1. In Ghost admin go to **Settings → Code injection → Site header** and paste:
+1. In Ghost admin, open **Settings → Code injection → Site header** and add:
 
 ```html
 <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 ```
 
-2. In any post or page, add an **HTML card** where the button should appear and paste:
+2. Add an **HTML card** to the post or page at the intended button position:
 
 ```html
 <div google-add-preferred-source-btn data-theme="light"></div>
 ```
 
-3. Running a dark theme (Casper dark mode, Solo, Ease dark)? Pair it: `data-theme="dark"`.
-4. Publish. Google renders its button into the div.
+3. Use `data-theme="dark"` where the surrounding section needs Google's dark button.
+4. For a shared post placement, add the placeholder to the relevant theme template instead of each individual HTML card.
 
-To show it on every post rather than per-post, put the div in your theme's `post.hbs` instead of an HTML card.
+## Expected behaviour and validation
 
-## Fallback
-
-For newsletters and no-JS contexts, use the documented deeplink as a plain link:
+Google's automatic mode scans the placeholder after the page loads. On a public eligible domain, inspect a published post or page to confirm the placeholder is visible and Google's button has rendered. Include a no-JavaScript link where appropriate and test it with the SDK blocked:
 
 ```html
-<a href="https://www.google.com/preferences/source?q=example.com" target="_blank" rel="noopener noreferrer">Add as a preferred source on Google</a>
+<a
+  href="https://www.google.com/preferences/source?q=example.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  >Add as a preferred source on Google</a
+>
 ```
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+[Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Google implementation guide](https://developers.google.com/search/docs/appearance/preferred-sources) · [Source repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [Opace support](https://opace.agency/add-as-preferred-source-button-for-google/) · [MIT licence](../../LICENSE)

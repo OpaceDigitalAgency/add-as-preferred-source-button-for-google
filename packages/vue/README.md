@@ -1,60 +1,67 @@
-# Google Preferred Sources button for Vue 3 / Nuxt
+# Preferred Sources button for Vue and Nuxt
 
-> Free companion tools: [button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/). Built by [Opace](https://www.opace.agency/).
+`@opace/vue-preferred-source` provides a Vue 3 component, `usePreferredSource()` composable and global plugin. It loads the SDK in `onMounted` and falls back to the documented deeplink when necessary.
 
-`@opace/vue-preferred-source` wraps Google's official Preferred Sources button for Vue 3: an SFC component, a composable, and a plugin. SDK loads in `onMounted`, deeplink fallback when blocked, `ps-click` events that honestly report clicks.
+**Status:** built and tested in this repository, but **not published to npm**. The future command is `npm i @opace/vue-preferred-source`; use the workspace first.
 
-## Install
+## Use from this repository
 
 ```sh
-npm i @opace/vue-preferred-source
+pnpm install
+pnpm --filter @opace/vue-preferred-source build
 ```
-
-## Component
 
 ```vue
 <script setup>
-import { PreferredSourceButton } from '@opace/vue-preferred-source';
+import { PreferredSourceButton } from "@opace/vue-preferred-source";
 </script>
+
 <template>
-  <PreferredSourceButton theme="dark" variant="google-colours" @ps-click="onClick" />
+  <PreferredSourceButton
+    theme="dark"
+    variant="google-colours"
+    @ps-click="track"
+  />
 </template>
 ```
 
-Or register globally: `app.use(PreferredSourcePlugin)`.
-
-## Composable
-
 ```vue
 <script setup>
-import { usePreferredSource } from '@opace/vue-preferred-source';
-const { status, open, deeplink } = usePreferredSource({ theme: 'light', lang: 'en' });
+import {
+  PreferredSourcePlugin,
+  usePreferredSource,
+} from "@opace/vue-preferred-source";
+
+const { status, open, deeplink } = usePreferredSource({
+  theme: "light",
+  lang: "en",
+});
+// Register globally in your application with app.use(PreferredSourcePlugin).
 </script>
 ```
 
-## Props
+## Requirements and limits
 
-| Prop | Type | Default |
-|---|---|---|
-| `theme` | `'light' \| 'dark'` | `'light'` |
-| `lang` | `string` | browser language |
-| `mode` | `'manual' \| 'auto'` | `'manual'` — `'auto'` renders the bare attributed `<div>` |
-| `label` | `string` | `'Add as a preferred source on Google'` (slot overrides) |
-| `variant` | `'google-default' \| 'google-colours' \| 'neutral'` | `'google-default'` |
-| `domain` | `string` | current hostname |
-| `hrefFallback` | `string` | computed deeplink |
+- Vue 3.3+ and Node.js 18+ for development.
+- The component is SSR-safe by design: Nuxt renders its shell and browser work begins in `onMounted`.
+- Props include `theme`, `lang`, `mode`, `label`, `variant`, `domain` and `hrefFallback`.
+- `ps-click` reports a click, not a completed Google preference action.
 
-Emits `ps-click` with a `PsClickDetail` payload.
+| Prop / event               | Default                                     | Notes                                                                         |
+| -------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------- |
+| `theme`, `lang`, `domain`  | `light`, browser language, current hostname | SDK configuration and fallback hostname.                                      |
+| `mode`                     | `manual`                                    | `auto` renders the attributed static target.                                  |
+| `label`, slot, `variant`   | Standard label, none, `google-default`      | The slot replaces the label; variants include `google-colours` and `neutral`. |
+| `hrefFallback`             | Computed deeplink                           | Overrides the fallback target.                                                |
+| `renderTimeoutMs`          | `4000` ms                                   | Auto-mode time allowed after SDK load before fallback.                        |
+| `ps-click` / `ps-fallback` | None                                        | Emits click detail or a `blocked`/`no-render` fallback reason.                |
 
-## SSR / Nuxt note
+`usePreferredSource()` returns reactive `status` and `deeplink` refs plus `open()`. `PreferredSourcePlugin` registers `<PreferredSourceButton>` globally.
 
-Works in Nuxt 3 with zero config — no `<ClientOnly>` needed. The server renders the static button shell; the client hydrates and loads the SDK inside `onMounted`, so `window is not defined` never happens.
+> **Limitation.** Google's SDK has no completion callback or event. `ps-click` measures a trigger click, not a confirmed addition.
 
-> **What "tracking" means here — and what it can't mean.** Google's SDK exposes exactly two methods (`init`, `addPreferredSource`) and **no completion callback or event**. Nothing on the page can know whether the reader finished adding your site inside Google's popup. Every event this library emits (`ps-click`) measures **clicks on the trigger**, not confirmed additions. Treat the numbers accordingly.
-
-[Live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/)
+See the [root README](../../README.md) for consent, CSP, eligibility and fallback guidance.
 
 ---
-Built by [Opace](https://www.opace.agency/) — a UK digital agency. Free tools:
-[Preferred Source eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) ·
-[Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/).
+
+Source: [suite repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · Support: [GitHub issues](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues) · [Live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [MIT licence](../../LICENSE)
