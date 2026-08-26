@@ -6,6 +6,10 @@
 
 _Shared live component demo capture: verify the Framer component renders this trigger on a published staging site._
 
+![Local Framer-compatible React rendering of the Preferred Sources code component](../../docs/assets/recipes/add-as-preferred-source-button-popup-google-framer-local-recipe-rendering-1280x800.png)
+
+_Local Framer-compatible React code-component rendering: the checked-in component renders its documented manual trigger. This is not a hosted Framer editor or published site._
+
 This self-contained Framer code component uses Google's documented manual mode. It has no package dependency.
 
 > **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.
