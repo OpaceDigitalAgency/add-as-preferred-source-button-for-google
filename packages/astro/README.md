@@ -1,4 +1,12 @@
-# Preferred Sources integration for Astro
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — Astro integration
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Named Add as Preferred Source Button and Popup for Google logo](assets/preferred-source-button-popup-logo.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: the Astro integration uses the same rendered button and deeplink fallback._
 
 `@opace/astro-preferred-source` injects the publisher script for static sites and provides server-rendered button and deeplink components backed by the shared core.
 
@@ -49,8 +57,12 @@ import { PreferredSourceButton, PreferredSourceLink } from '@opace/astro-preferr
 
 > **Limitation.** Google's SDK has no completion callback or event. `ps-click` measures a trigger click, not a confirmed addition.
 
+## External service and troubleshooting
+
+Browser use loads Google's publisher script. This integration does not send `ps-click` anywhere or store event records; decide whether your site listens for the event. If the trigger falls back to a link, check your consent and CSP rules for Google's script, then confirm the configured domain is eligible before treating the popup as available.
+
 The package includes `astro-integration` metadata for its future npm listing. See the [root README](../../README.md) for consent, CSP, eligibility and fallback guidance.
 
 ---
 
-Source: [suite repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · Support: [GitHub issues](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues) · [Live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [MIT licence](../../LICENSE)
+Source: [suite repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · Support: [GitHub issues](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues) · [Live demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [MIT licence](LICENSE)

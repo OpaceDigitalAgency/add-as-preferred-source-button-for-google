@@ -1,4 +1,10 @@
-# Add as Preferred Source Button for Ghost
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — Ghost reference recipe
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](../../.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](../../docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: verify the Ghost HTML card renders this trigger on staging._
 
 This recipe uses Ghost code injection for the SDK and an HTML card for Google's documented automatic-mode placeholder.
 
@@ -33,6 +39,10 @@ Google's automatic mode scans the placeholder after the page loads. On a public 
   >Add as a preferred source on Google</a
 >
 ```
+
+## Scope, privacy and troubleshooting
+
+This is a reference recipe, not a recorded Ghost deployment test. It loads Google's publisher script and does not send data to Opace. If no button renders, keep the fallback link and check Site header injection, the published page's CSP and consent rules, and the eligible public domain.
 
 ---
 

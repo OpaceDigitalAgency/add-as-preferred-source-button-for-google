@@ -1,4 +1,10 @@
-# Add as Preferred Source Button for Jekyll
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — Jekyll reference recipe
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](../../.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](../../docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: verify the Jekyll include renders this trigger on staging._
 
 This include outputs Google's documented automatic-mode placeholder and a no-JavaScript deeplink.
 
@@ -26,6 +32,10 @@ This include outputs Google's documented automatic-mode placeholder and a no-Jav
 Google's automatic mode scans the included `google-add-preferred-source-btn` element. On a public eligible domain, inspect the deployed page to confirm the placeholder is visible and Google's button has rendered. The fallback derives its query from `site.url`; verify that it contains the intended domain and test the link with JavaScript disabled.
 
 The include uses built-in Liquid syntax and needs no custom Jekyll plugin, so it suits GitHub Pages builds. A remote theme may control the head include; use that theme's documented override point and confirm the SDK appears only once in the generated HTML.
+
+## Scope, privacy and troubleshooting
+
+This is a reference recipe, not a recorded Jekyll deployment test. It loads Google's publisher script and does not send data to Opace. If no button appears, keep the fallback link and inspect the generated HTML, the theme's head override, CSP, consent and the public eligible domain.
 
 ---
 

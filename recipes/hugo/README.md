@@ -1,4 +1,10 @@
-# Add as Preferred Source Button for Hugo
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — Hugo reference recipe
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](../../.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](../../docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: verify the Hugo partial renders this trigger on staging._
 
 This partial outputs Google's documented automatic-mode placeholder and its no-JavaScript deeplink.
 
@@ -20,6 +26,10 @@ This partial outputs Google's documented automatic-mode placeholder and its no-J
 The partial adds the SDK and a `google-add-preferred-source-btn` element. On a public eligible domain, inspect the generated page to confirm the placeholder is visible and Google's button has rendered. The `<noscript>` fallback derives its query value from the configured site URL; check that it resolves to the intended domain before release.
 
 If the fallback shows the wrong host, check `baseURL` in `hugo.toml` or the equivalent site configuration. Run this check against the Hugo release pinned by your project; this reference does not claim a separately tested Hugo version.
+
+## Scope, privacy and troubleshooting
+
+This is a reference recipe, not a recorded Hugo deployment test. It loads Google's publisher script and does not send data to Opace. If the popup does not appear, keep the fallback link and check the generated HTML contains the SDK once, then review CSP, consent and the public eligible domain.
 
 ---
 

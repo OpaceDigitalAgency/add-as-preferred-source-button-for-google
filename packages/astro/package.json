@@ -1,7 +1,7 @@
 {
   "name": "@opace/astro-preferred-source",
   "version": "0.1.0",
-  "description": "Astro integration and components for Google's Preferred Sources button: site-wide script injection, SSR-rendered button, deeplink fallback, honest ps-click events.",
+  "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) for Astro: integration, SSR-rendered button, deeplink fallback and ps-click instrumentation.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
   "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
@@ -35,9 +35,18 @@
     "./components/PreferredSourceButton.astro": "./src/components/PreferredSourceButton.astro",
     "./components/PreferredSourceLink.astro": "./src/components/PreferredSourceLink.astro"
   },
-  "files": ["src", "README.md"],
-  "publishConfig": { "access": "public" },
-  "engines": { "node": ">=18" },
+  "files": [
+    "src",
+    "assets",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "echo \"@opace/astro-preferred-source ships raw source — no build step\"",
     "typecheck": "tsc --noEmit",

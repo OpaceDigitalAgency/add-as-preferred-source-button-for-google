@@ -1,7 +1,7 @@
 {
   "name": "@opace/svelte-preferred-source",
   "version": "0.1.0",
-  "description": "Google Preferred Sources button for Svelte and SvelteKit: single component, SSR-safe by construction, deeplink fallback, honest ps-click events.",
+  "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) for Svelte and SvelteKit: SSR-safe component, fallback and ps-click instrumentation.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
   "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
@@ -35,9 +35,18 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md"],
-  "publishConfig": { "access": "public" },
-  "engines": { "node": ">=18" },
+  "files": [
+    "dist",
+    "assets",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "svelte-package -i src/lib -o dist",
     "typecheck": "svelte-check --tsconfig ./tsconfig.json",

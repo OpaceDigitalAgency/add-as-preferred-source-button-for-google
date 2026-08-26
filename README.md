@@ -1,4 +1,10 @@
-# Preferred Sources button packages for React, Vue, Svelte, Astro and the web
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — framework packages
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: the suite's button trigger on the public GitHub Pages demo._
 
 An open-source TypeScript suite for adding Google's Preferred Sources button to publisher sites, with SSR-safe framework bindings and a deeplink fallback when the external SDK cannot render.
 
@@ -57,7 +63,7 @@ If the SDK errors, times out, is blocked by consent tooling or does not render a
 
 ## Privacy, external SDK and accessibility
 
-The suite does not include an analytics backend or send application data to Opace. It loads Google's publisher SDK only after the relevant client-side component connects or is configured. Your site controls consent, CSP and any analytics listener attached to `ps-click`.
+The suite does not include an event-collection backend or send application data to Opace. It loads Google's publisher SDK only after the relevant client-side component connects or is configured. Your site controls consent, CSP and any listener attached to `ps-click`.
 
 The element uses native buttons or links, a visible focus style and reduced-motion handling. When you override its colours, validate contrast in your own theme. Google controls the popup and its availability.
 

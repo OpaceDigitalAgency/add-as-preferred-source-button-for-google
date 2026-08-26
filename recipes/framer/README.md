@@ -1,4 +1,10 @@
-# Add as Preferred Source Button for Framer
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — Framer reference recipe
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](../../.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](../../docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: verify the Framer component renders this trigger on a published staging site._
 
 This self-contained Framer code component uses Google's documented manual mode. It has no package dependency.
 
@@ -15,6 +21,10 @@ This self-contained Framer code component uses Google's documented manual mode. 
 ## Expected behaviour and validation
 
 The component loads the SDK in manual mode and calls Google's documented `init({ theme, lang })` and `addPreferredSource()` methods when its trigger is clicked. If the SDK cannot load, it uses the configured-domain deeplink. Validate on a public eligible domain, not only in the editor preview or localhost: check the visible trigger, click it, and test the fallback path with the SDK blocked.
+
+## Scope, privacy and troubleshooting
+
+This is a reference recipe, not a recorded Framer deployment test. It loads Google's publisher script and does not send data to Opace. If the fallback opens unexpectedly, verify the published Domain property, the site's consent and CSP rules, and eligibility before treating the popup as available.
 
 ---
 

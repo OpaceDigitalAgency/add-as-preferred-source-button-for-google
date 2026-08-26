@@ -1,7 +1,7 @@
 {
   "name": "@opace/preferred-source-core",
   "version": "0.1.0",
-  "description": "Dependency-free TypeScript core for Google's Preferred Sources button: idempotent SDK loader, SSR guard, deeplink fallback, honest click events.",
+  "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) TypeScript core: SDK loader, SSR guard, deeplink fallback and ps-click instrumentation.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
   "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
@@ -36,9 +36,18 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "README.md"],
-  "publishConfig": { "access": "public" },
-  "engines": { "node": ">=18" },
+  "files": [
+    "dist",
+    "assets",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit",

@@ -1,7 +1,7 @@
 {
   "name": "@opace/react-preferred-source",
   "version": "0.1.0",
-  "description": "Google Preferred Sources button for React and Next.js: client component + hook, SSR-safe, deeplink fallback, honest ps-click analytics events.",
+  "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) for React and Next.js: client component, hook, fallback and ps-click instrumentation.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
   "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
@@ -37,9 +37,18 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "README.md"],
-  "publishConfig": { "access": "public" },
-  "engines": { "node": ">=18" },
+  "files": [
+    "dist",
+    "assets",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit",
@@ -53,7 +62,9 @@
     "react-dom": ">=18"
   },
   "peerDependenciesMeta": {
-    "react-dom": { "optional": true }
+    "react-dom": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@testing-library/react": "^16.0.0",

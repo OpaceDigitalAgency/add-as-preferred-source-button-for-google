@@ -1,4 +1,10 @@
-# Add as Preferred Source Button for Eleventy
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — Eleventy reference recipe
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](../../.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](../../docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: verify the Eleventy shortcode produces this button on staging._
 
 This reference recipe registers a shortcode that returns Google's documented automatic-mode placeholder.
 
@@ -40,6 +46,10 @@ Google's automatic mode scans for the generated `google-add-preferred-source-btn
   >Add as a preferred source on Google</a
 >
 ```
+
+## Scope, privacy and troubleshooting
+
+This is a reference recipe, not a recorded Eleventy deployment test. It loads Google's publisher script and does not send data to Opace. If the button does not appear, keep the fallback link and check the built page contains the SDK once, then review your CSP, consent rule and eligible public domain.
 
 ---
 

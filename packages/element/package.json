@@ -1,7 +1,7 @@
 {
   "name": "@opace/preferred-source-element",
   "version": "0.1.0",
-  "description": "<preferred-source-button> web component for Google's Preferred Sources button. Works in any framework or plain HTML; SSR-safe; deeplink fallback when the SDK is blocked.",
+  "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) web component for plain HTML and frameworks, with SSR safety and deeplink fallback.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
   "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
@@ -25,7 +25,10 @@
     "vanilla-js"
   ],
   "type": "module",
-  "sideEffects": ["./dist/register.js", "./dist/register.cjs"],
+  "sideEffects": [
+    "./dist/register.js",
+    "./dist/register.cjs"
+  ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -41,9 +44,18 @@
       "require": "./dist/register.cjs"
     }
   },
-  "files": ["dist", "README.md"],
-  "publishConfig": { "access": "public" },
-  "engines": { "node": ">=18" },
+  "files": [
+    "dist",
+    "assets",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit",

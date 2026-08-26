@@ -1,4 +1,12 @@
-# Preferred Sources TypeScript core
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — TypeScript core
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Named Add as Preferred Source Button and Popup for Google logo](assets/preferred-source-button-popup-logo.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: the core loads the SDK and supplies the fallback used by the visible trigger._
 
 `@opace/preferred-source-core` is the dependency-free base for the suite: idempotent SDK loading, SSR guards, auto-mode attributes, deeplink fallback and honest `ps-click` events.
 
@@ -52,14 +60,18 @@ myButton.addEventListener("click", () => {
 | `applyAutoAttributes()`                            | Marks a static element with the documented auto-mode attributes.                                                                  |
 | `watchAutoRender()` / `watchAutoRenderAfterLoad()` | Detects whether auto mode rendered, including a blocked or no-render result.                                                      |
 | `createFallbackAnchor()`                           | Creates a safe `target="_blank"` deeplink anchor.                                                                                 |
-| `emitPsClick()`                                    | Dispatches the bubbling, composed `ps-click` event for consumer analytics.                                                        |
+| `emitPsClick()`                                    | Dispatches the bubbling, composed `ps-click` event for consumer instrumentation.                                                  |
 
 `loadSdk()` never rejects. If the script fails or times out, `openPreferredSourceDialog()` opens the deeplink by default. If Google's script loads after that timeout, later clicks can use the popup again.
 
 > **Limitation.** Google's SDK has no completion callback or event. `ps-click` measures a trigger click, not a confirmed addition.
 
+## External service and troubleshooting
+
+Browser use loads Google's publisher script. The core does not send `ps-click` anywhere or store event records; consumers choose whether to listen. If `getSdkStatus()` is `blocked` or `unsupported`, preserve the deeplink fallback, then check consent, CSP and the domain supplied to `buildDeeplink()`.
+
 See the [root README](../../README.md) for compatibility, privacy, CSP/consent considerations and troubleshooting.
 
 ---
 
-Source: [suite repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · Support: [GitHub issues](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues) · [Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [MIT licence](../../LICENSE)
+Source: [suite repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · Support: [GitHub issues](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/issues) · [Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [MIT licence](LICENSE)

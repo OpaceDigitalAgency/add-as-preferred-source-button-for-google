@@ -1,4 +1,10 @@
-# Add as Preferred Source Button for Webflow
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — Webflow reference recipe
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](../../.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](../../docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: verify the Webflow Embed renders this trigger on staging._
 
 This recipe uses Webflow custom code for the SDK and an Embed element for Google's documented automatic-mode placeholder.
 
@@ -28,6 +34,10 @@ Google's automatic mode scans the Embed element after the page loads. On a publi
 ```text
 https://www.google.com/preferences/source?q=example.com
 ```
+
+## Scope, privacy and troubleshooting
+
+This is a reference recipe, not a recorded Webflow deployment test. It loads Google's publisher script and does not send data to Opace. If no button renders, keep the fallback link and check the published custom domain, Head Code, CSP and consent rules before retrying.
 
 ---
 

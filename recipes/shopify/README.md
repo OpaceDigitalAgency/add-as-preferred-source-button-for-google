@@ -1,4 +1,10 @@
-# Add as Preferred Source Button for Shopify
+# Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — Shopify reference recipe
+
+![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](../../.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+
+![Shared live demo capture showing the Preferred Sources button and suite status](../../docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+
+_Shared live component demo capture: verify the Shopify snippet renders this trigger on staging._
 
 This Liquid snippet outputs Google's documented automatic-mode placeholder and a no-JavaScript deeplink.
 
@@ -25,6 +31,10 @@ This Liquid snippet outputs Google's documented automatic-mode placeholder and a
 Google's automatic mode scans the snippet's `google-add-preferred-source-btn` element. On a public eligible shop domain, inspect the published page to confirm the placeholder is visible and Google's button has rendered. The fallback uses `{{ shop.domain }}`; verify that it is the domain you confirmed in Google's source preferences tool.
 
 Test in an unpublished theme preview first, then repeat the check on the public shop domain. Keep the snippet and `theme.liquid` change in your theme source or migration notes so a theme replacement does not silently remove them.
+
+## Scope, privacy and troubleshooting
+
+This is a reference recipe, not a recorded Shopify deployment test. It loads Google's publisher script and does not send data to Opace. If no button renders, keep the fallback link and check the active theme, `theme.liquid`, CSP, consent and the public eligible shop domain.
 
 ---
 

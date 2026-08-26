@@ -1,6 +1,6 @@
 {
   "name": "preferred-source-monorepo",
-  "description": "Add as Preferred Source Button, Popup & Analytics for Google (SEO & AI Overviews) — Google's official Preferred Sources button SDK wrapped for every major framework.",
+  "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews): Google's official Preferred Sources button SDK for every major framework.",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.24.0",
