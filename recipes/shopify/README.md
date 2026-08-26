@@ -6,6 +6,10 @@
 
 _Shared live component demo capture: verify the Shopify snippet renders this trigger on staging._
 
+![Local Shopify Liquid rendering of the Preferred Sources snippet placeholder](../../docs/assets/recipes/add-as-preferred-source-button-popup-google-shopify-local-recipe-rendering-1280x800.png)
+
+_Local Shopify Liquid recipe rendering: the checked-in snippet emitted the light, English placeholder at article placement. The Google SDK is intentionally not loaded on localhost._
+
 This Liquid snippet outputs Google's documented automatic-mode placeholder and a no-JavaScript deeplink.
 
 > **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Shopify blog paths such as `/blogs/news` are not separate sources; the snippet uses your shop domain.

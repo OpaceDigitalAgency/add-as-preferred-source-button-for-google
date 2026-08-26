@@ -6,6 +6,10 @@
 
 _Shared live component demo capture: verify the Webflow Embed renders this trigger on staging._
 
+![Local Webflow exported HTML rendering of the Preferred Sources Embed placeholder](../../docs/assets/recipes/add-as-preferred-source-button-popup-google-webflow-local-recipe-rendering-1280x800.png)
+
+_Local Webflow exported-HTML recipe rendering: the checked-in Embed placeholder is shown at article placement. The Google SDK is intentionally not loaded on localhost._
+
 This recipe uses Webflow custom code for the SDK and an Embed element for Google's documented automatic-mode placeholder.
 
 > **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. A `webflow.io` subdomain is not your publication domain.

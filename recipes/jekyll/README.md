@@ -6,6 +6,10 @@
 
 _Shared live component demo capture: verify the Jekyll include renders this trigger on staging._
 
+![Local Jekyll Liquid rendering of the Preferred Sources include placeholder](../../docs/assets/recipes/add-as-preferred-source-button-popup-google-jekyll-local-recipe-rendering-1280x800.png)
+
+_Local Jekyll-compatible Liquid recipe rendering: the checked-in include emitted the dark, English placeholder at article placement. Jekyll itself was unavailable locally; the Google SDK is intentionally not loaded on localhost._
+
 This include outputs Google's documented automatic-mode placeholder and a no-JavaScript deeplink.
 
 > **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.

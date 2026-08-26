@@ -6,6 +6,10 @@
 
 _Shared live component demo capture: verify the Eleventy shortcode produces this button on staging._
 
+![Local Eleventy 3.1.2 rendering of the Preferred Sources shortcode placeholder](../../docs/assets/recipes/add-as-preferred-source-button-popup-google-eleventy-local-recipe-rendering-1280x800.png)
+
+_Local Eleventy 3.1.2 recipe rendering: the checked-in shortcode emitted the dark, English placeholder at article placement. The Google SDK is intentionally not loaded on localhost._
+
 This reference recipe registers a shortcode that returns Google's documented automatic-mode placeholder.
 
 > **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.

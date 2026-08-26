@@ -6,6 +6,22 @@
 
 _Shared live component demo capture: each reference recipe aims to place this documented trigger on a staging site._
 
+## Local recipe renderings
+
+The captures below are local, platform-specific recipe renderings. They prove the checked-in snippets emit their documented placeholders; they do not claim that Google's popup can work on localhost.
+
+![Local Eleventy recipe rendering](../docs/assets/recipes/add-as-preferred-source-button-popup-google-eleventy-local-recipe-rendering-1280x800.png)
+
+_Local Eleventy 3.1.2 rendering of the checked-in shortcode._
+
+![Local Hugo recipe rendering](../docs/assets/recipes/add-as-preferred-source-button-popup-google-hugo-local-recipe-rendering-1280x800.png)
+
+_Local Hugo 0.147.0 rendering of the checked-in partial._
+
+![Local Shopify Liquid recipe rendering](../docs/assets/recipes/add-as-preferred-source-button-popup-google-shopify-local-recipe-rendering-1280x800.png)
+
+_Local Shopify Liquid rendering of the checked-in snippet._
+
 Copy-paste reference recipes for adding Google's Preferred Sources button to static-site, CMS and site-builder projects. They use Google's documented automatic mode and a deeplink fallback; no package installation is required.
 
 Each guide identifies the checked-in source file, the placement point and the rendered result to verify. Treat the snippets as starting points for the platform version and theme used by your project.

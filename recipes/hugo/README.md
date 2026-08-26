@@ -6,6 +6,10 @@
 
 _Shared live component demo capture: verify the Hugo partial renders this trigger on staging._
 
+![Local Hugo rendering of the Preferred Sources partial placeholder](../../docs/assets/recipes/add-as-preferred-source-button-popup-google-hugo-local-recipe-rendering-1280x800.png)
+
+_Local Hugo 0.147.0 recipe rendering: the checked-in partial emitted the dark, English placeholder at article placement. The Google SDK is intentionally not loaded on localhost._
+
 This partial outputs Google's documented automatic-mode placeholder and its no-JavaScript deeplink.
 
 > **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.

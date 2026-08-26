@@ -6,6 +6,10 @@
 
 _Shared live component demo capture: verify the Ghost HTML card renders this trigger on staging._
 
+![Local Ghost Handlebars rendering of the Preferred Sources HTML card placeholder](../../docs/assets/recipes/add-as-preferred-source-button-popup-google-ghost-local-recipe-rendering-1280x800.png)
+
+_Local Ghost HTML-card/Handlebars recipe rendering: the checked-in automatic-mode placeholder is shown at article placement. The Google SDK is intentionally not loaded on localhost._
+
 This recipe uses Ghost code injection for the SDK and an HTML card for Google's documented automatic-mode placeholder.
 
 > **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.
