@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["svelte"],
+    "verbatimModuleSyntax": true
+  },
+  "include": ["src", "test"]
+}

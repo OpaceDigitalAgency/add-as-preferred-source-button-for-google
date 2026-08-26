@@ -1,0 +1,18 @@
+{{- /*
+  Google Preferred Sources button (auto mode).
+  Usage: {{ partial "preferred-source.html" (dict "theme" "dark" "lang" "en" "ctx" .) }}
+  The script tag is emitted once per page via .Store on the page context ("ctx").
+*/ -}}
+{{- $theme := .theme | default "light" -}}
+{{- $lang := .lang -}}
+{{- $ctx := .ctx -}}
+{{- if and $ctx (not ($ctx.Store.Get "psScriptEmitted")) -}}
+  <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+  {{- $ctx.Store.Set "psScriptEmitted" true -}}
+{{- else if not $ctx -}}
+  <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+{{- end -}}
+<div google-add-preferred-source-btn data-theme="{{ $theme }}"{{ with $lang }} data-lang="{{ . }}"{{ end }}></div>
+<noscript>
+  <a href="https://www.google.com/preferences/source?q={{ site.BaseURL | urlize }}" target="_blank" rel="noopener noreferrer">Add as a preferred source on Google</a>
+</noscript>

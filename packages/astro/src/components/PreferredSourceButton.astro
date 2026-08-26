@@ -1,0 +1,199 @@
+---
+interface Props {
+  theme?: 'light' | 'dark';
+  lang?: string;
+  mode?: 'auto' | 'manual';
+  label?: string;
+  variant?: 'google-default' | 'google-colours' | 'neutral';
+  domain?: string;
+  hrefFallback?: string;
+  /** Auto mode only: ms Google gets after SDK load to paint before the deeplink fallback. Default 4000. */
+  renderTimeout?: number;
+  class?: string;
+}
+
+const {
+  theme = 'light',
+  lang,
+  mode = 'auto',
+  label = 'Add as a preferred source on Google',
+  variant = 'google-default',
+  domain,
+  hrefFallback,
+  renderTimeout,
+  class: className,
+} = Astro.props;
+
+const fallbackDomain = domain ?? Astro.url.hostname;
+const deeplink =
+  hrefFallback ??
+  `https://www.google.com/preferences/source?q=${encodeURIComponent(fallbackDomain.toLowerCase())}`;
+---
+
+{
+  mode === 'auto' ? (
+    <span
+      class={className}
+      data-opace-ps-auto
+      data-deeplink={deeplink}
+      data-label={label}
+      data-render-timeout={renderTimeout}
+    >
+      <div google-add-preferred-source-btn data-theme={theme} data-lang={lang} />
+      <noscript>
+        <a href={deeplink} target="_blank" rel="noopener noreferrer">
+          {label}
+        </a>
+      </noscript>
+    </span>
+  ) : (
+    <button
+      type="button"
+      class:list={['opace-ps-btn', `opace-ps-btn--${variant}`, `opace-ps-theme-${theme}`, className]}
+      data-opace-ps-btn
+      data-theme={theme}
+      data-lang={lang}
+      data-domain={fallbackDomain}
+      data-deeplink={deeplink}
+    >
+      <slot>{label}</slot>
+    </button>
+  )
+}
+
+{mode === 'auto' && (
+  <script>
+    import { watchAutoRenderAfterLoad } from '@opace/preferred-source-core';
+
+    document.querySelectorAll<HTMLElement>('[data-opace-ps-auto]').forEach((wrapper) => {
+      if (wrapper.dataset.opacePsWired) return;
+      wrapper.dataset.opacePsWired = 'true';
+
+      const target = wrapper.querySelector('[google-add-preferred-source-btn]');
+      if (!target) return;
+      const rawTimeout = Number(wrapper.dataset.renderTimeout);
+      const timeoutMs = Number.isFinite(rawTimeout) && rawTimeout > 0 ? rawTimeout : undefined;
+
+      // Google's SDK loads fine on unrecognised origins and silently paints
+      // nothing; watch the container and swap to the deeplink on non-render.
+      void watchAutoRenderAfterLoad(target, { timeoutMs }).then((outcome) => {
+        if (outcome !== 'blocked' && outcome !== 'no-render') return;
+        const anchor = document.createElement('a');
+        anchor.href = wrapper.dataset.deeplink || '';
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.setAttribute('data-ps-fallback', '');
+        anchor.textContent = wrapper.dataset.label || 'Add as a preferred source on Google';
+        target.replaceWith(anchor);
+        wrapper.dispatchEvent(
+          new CustomEvent('ps-fallback', { bubbles: true, composed: true, detail: { reason: outcome } }),
+        );
+      });
+    });
+  </script>
+)}
+
+{mode === 'manual' && (
+  <script>
+    import {
+      emitPsClick,
+      getSdkStatus,
+      loadSdk,
+      openPreferredSourceDialog,
+    } from '@opace/preferred-source-core';
+    import type { PreferredSourceTheme, PsClickDetail } from '@opace/preferred-source-core';
+
+    document.querySelectorAll<HTMLButtonElement>('[data-opace-ps-btn]').forEach((button) => {
+      if (button.dataset.opacePsWired) return;
+      button.dataset.opacePsWired = 'true';
+
+      const theme = (button.dataset.theme === 'dark' ? 'dark' : 'light') as PreferredSourceTheme;
+      const lang = button.dataset.lang || undefined;
+      const domain = button.dataset.domain || location.hostname;
+      const deeplink = button.dataset.deeplink || '';
+
+      const toFallback = (): void => {
+        const anchor = document.createElement('a');
+        anchor.href = deeplink;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.className = button.className;
+        anchor.setAttribute('data-ps-fallback', '');
+        anchor.textContent = button.textContent;
+        button.replaceWith(anchor);
+      };
+
+      void loadSdk({ mode: 'manual', theme, lang }).then((result) => {
+        if (result.status === 'blocked') toFallback();
+      });
+
+      button.addEventListener('click', () => {
+        const detail: PsClickDetail = { outcome: 'pending', mode: 'manual', theme, lang, domain };
+        emitPsClick(button, detail);
+        void openPreferredSourceDialog({ theme, lang, domain }).then((outcome) => {
+          if (outcome === 'deeplink' && getSdkStatus() !== 'ready') toFallback();
+        });
+      });
+    });
+  </script>
+)}
+
+<style>
+  .opace-ps-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Roboto, system-ui, -apple-system, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.55em 1.1em;
+    line-height: 1.2;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .opace-ps-btn:focus-visible {
+    outline: 2px solid #4285f4;
+    outline-offset: 2px;
+  }
+  .opace-ps-btn--google-default {
+    background: #ffffff;
+    color: #1f1f1f;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+  }
+  .opace-ps-btn--google-default.opace-ps-theme-dark {
+    background: #202124;
+    color: #e8eaed;
+    border-color: #5f6368;
+  }
+  .opace-ps-btn--google-colours {
+    background: #4285f4;
+    color: #ffffff;
+    border: none;
+    border-radius: 9999px;
+  }
+  .opace-ps-btn--google-colours:hover,
+  .opace-ps-btn--google-colours:focus-visible {
+    background: #34a853;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  }
+  .opace-ps-btn--neutral {
+    background: transparent;
+    color: inherit;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .opace-ps-btn {
+      transition: background-color 0.2s ease;
+    }
+    .opace-ps-btn--google-colours:hover,
+    .opace-ps-btn--google-colours:focus-visible {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+</style>

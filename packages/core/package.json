@@ -1,0 +1,47 @@
+{
+  "name": "@opace/preferred-source-core",
+  "version": "0.1.0",
+  "description": "Dependency-free TypeScript core for Google's Preferred Sources button: idempotent SDK loader, SSR guard, deeplink fallback, honest click events.",
+  "license": "MIT",
+  "author": "Opace Ltd (https://www.opace.agency)",
+  "homepage": "https://opace.agency/tools/seo/google-preferred-source-button-generator/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpaceDigitalAgency/preferred-source.git",
+    "directory": "packages/core"
+  },
+  "bugs": "https://github.com/OpaceDigitalAgency/preferred-source/issues",
+  "keywords": [
+    "google",
+    "preferred-sources",
+    "preferred-source",
+    "google-preferred-sources",
+    "seo",
+    "publisher",
+    "top-stories",
+    "ai-overviews",
+    "typescript",
+    "sdk-loader",
+    "deeplink"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  }
+}

@@ -1,0 +1,86 @@
+---
+/**
+ * Pure deeplink anchor — no JavaScript at all. Honest about being a link:
+ * it opens Google's source preferences page for the given domain.
+ */
+interface Props {
+  domain?: string;
+  label?: string;
+  variant?: 'google-default' | 'google-colours' | 'neutral';
+  class?: string;
+}
+
+const {
+  domain,
+  label = 'Add as a preferred source on Google',
+  variant = 'google-default',
+  class: className,
+} = Astro.props;
+
+const host = (domain ?? Astro.url.hostname).toLowerCase();
+const deeplink = `https://www.google.com/preferences/source?q=${encodeURIComponent(host)}`;
+---
+
+<a
+  class:list={['opace-ps-link', `opace-ps-link--${variant}`, className]}
+  href={deeplink}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <slot>{label}</slot>
+</a>
+
+<style>
+  .opace-ps-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Roboto, system-ui, -apple-system, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.55em 1.1em;
+    line-height: 1.2;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .opace-ps-link:focus-visible {
+    outline: 2px solid #4285f4;
+    outline-offset: 2px;
+  }
+  .opace-ps-link--google-default {
+    background: #ffffff;
+    color: #1f1f1f;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+  }
+  .opace-ps-link--google-colours {
+    background: #4285f4;
+    color: #ffffff;
+    border: none;
+    border-radius: 9999px;
+  }
+  .opace-ps-link--google-colours:hover,
+  .opace-ps-link--google-colours:focus-visible {
+    background: #34a853;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  }
+  .opace-ps-link--neutral {
+    background: transparent;
+    color: inherit;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .opace-ps-link {
+      transition: background-color 0.2s ease;
+    }
+    .opace-ps-link--google-colours:hover,
+    .opace-ps-link--google-colours:focus-visible {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+</style>

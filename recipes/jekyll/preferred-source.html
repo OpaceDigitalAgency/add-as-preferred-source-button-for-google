@@ -1,0 +1,12 @@
+{% comment %}
+  Google Preferred Sources button (auto mode).
+  Usage: {% include preferred-source.html theme="dark" lang="en" %}
+  Put the SDK script in your head include (see README) or leave include_script unset here.
+{% endcomment %}
+{% if include.include_script %}
+<script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+{% endif %}
+<div google-add-preferred-source-btn data-theme="{{ include.theme | default: 'light' }}"{% if include.lang %} data-lang="{{ include.lang }}"{% endif %}></div>
+<noscript>
+  <a href="https://www.google.com/preferences/source?q={{ site.url | remove: 'https://' | remove: 'http://' | split: '/' | first }}" target="_blank" rel="noopener noreferrer">Add as a preferred source on Google</a>
+</noscript>

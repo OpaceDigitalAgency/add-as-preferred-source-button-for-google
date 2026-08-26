@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Preferred Sources button — live demos for every framework | Opace</title>
+  <meta name="description" content="Live demos of the @opace Preferred Sources packages: web component, React, Vue, Svelte and Astro wrappers for Google's official button SDK, with a deeplink fallback and honest click events.">
+  <link rel="canonical" href="https://opacedigitalagency.github.io/preferred-source/">
+  <meta property="og:title" content="Google Preferred Sources button — live demos for every framework">
+  <meta property="og:description" content="One dependency-free core, thin wrappers for every major framework, deeplink fallback, honest click events.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://opacedigitalagency.github.io/preferred-source/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Google Preferred Sources button — live demos for every framework",
+    "url": "https://opacedigitalagency.github.io/preferred-source/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Opace Digital Agency",
+      "url": "https://www.opace.agency/"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="vendor/preferred-source-element.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <p class="badge-row"><span class="badge">Open source</span><span class="badge">MIT</span><span class="badge">6 packages | 7 recipes | 2 SDK methods</span></p>
+    <h1>Become a <em>Preferred Source</em> on Google</h1>
+    <p class="sub">Live demos of the <code>@opace/preferred-source-*</code> packages — Google's official button SDK wrapped for every major framework, with a deeplink fallback and honest click events.</p>
+    <div class="hero-demo">
+      <preferred-source-button variant="google-colours"></preferred-source-button>
+    </div>
+    <p class="cta-row">
+      <a href="https://github.com/OpaceDigitalAgency/preferred-source">View the repo →</a>
+      <a href="https://opace.agency/tools/seo/google-preferred-source-button-generator/">Button generator ↗</a>
+      <a href="https://opace.agency/tools/seo/google-preferred-source-checker/">Eligibility checker ↗</a>
+    </p>
+  </header>
+
+  <main>
+    <section id="variants">
+      <h2><span class="num">01</span> Variant gallery</h2>
+      <p>Three variants, each in light and dark. Every card shows its copyable snippet.</p>
+      <div class="grid" id="variant-grid">
+        <figure class="card">
+          <preferred-source-button variant="google-default" domain="example.com"></preferred-source-button>
+          <span class="static-preview" aria-hidden="true">
+            <span class="mock-btn mock-light">
+              <svg class="mock-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 0 1 7.07 2.93l-2.83 2.83A6 6 0 0 0 12 6V2Z" fill="#EA4335"></path><path d="M22 12a10 10 0 0 0-2.93-7.07l-2.83 2.83A6 6 0 0 1 18 12h4Z" fill="#4285F4"></path><path d="M12 22a10 10 0 0 0 7.07-2.93l-2.83-2.83A6 6 0 0 1 12 18v4Z" fill="#34A853"></path><path d="M2 12a10 10 0 0 0 2.93 7.07l2.83-2.83A6 6 0 0 1 6 12H2Z" fill="#FBBC05"></path><path d="M2 12a10 10 0 0 1 2.93-7.07l2.83 2.83A6 6 0 0 0 6 12H2Z" fill="#EA4335"></path><rect x="12" y="10.75" width="7" height="2.5" fill="#4285F4"></rect></svg>
+              Add as a preferred source on Google
+            </span>
+            <span class="preview-tag">preview</span>
+          </span>
+          <figcaption>google-default · light</figcaption>
+          <pre><code>&lt;preferred-source-button&gt;&lt;/preferred-source-button&gt;</code></pre>
+        </figure>
+        <figure class="card card-dark">
+          <preferred-source-button variant="google-default" theme="dark" domain="example.com"></preferred-source-button>
+          <span class="static-preview" aria-hidden="true">
+            <span class="mock-btn mock-dark">
+              <svg class="mock-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 0 1 7.07 2.93l-2.83 2.83A6 6 0 0 0 12 6V2Z" fill="#EA4335"></path><path d="M22 12a10 10 0 0 0-2.93-7.07l-2.83 2.83A6 6 0 0 1 18 12h4Z" fill="#4285F4"></path><path d="M12 22a10 10 0 0 0 7.07-2.93l-2.83-2.83A6 6 0 0 1 12 18v4Z" fill="#34A853"></path><path d="M2 12a10 10 0 0 0 2.93 7.07l2.83-2.83A6 6 0 0 1 6 12H2Z" fill="#FBBC05"></path><path d="M2 12a10 10 0 0 1 2.93-7.07l2.83 2.83A6 6 0 0 0 6 12H2Z" fill="#EA4335"></path><rect x="12" y="10.75" width="7" height="2.5" fill="#4285F4"></rect></svg>
+              Add as a preferred source on Google
+            </span>
+            <span class="preview-tag">preview</span>
+          </span>
+          <figcaption>google-default · dark</figcaption>
+          <pre><code>&lt;preferred-source-button theme="dark"&gt;&lt;/preferred-source-button&gt;</code></pre>
+        </figure>
+        <figure class="card">
+          <preferred-source-button variant="google-colours" domain="example.com"></preferred-source-button>
+          <figcaption>google-colours · light</figcaption>
+          <pre><code>&lt;preferred-source-button variant="google-colours"&gt;&lt;/preferred-source-button&gt;</code></pre>
+        </figure>
+        <figure class="card card-dark">
+          <preferred-source-button variant="google-colours" theme="dark" domain="example.com"></preferred-source-button>
+          <figcaption>google-colours · dark</figcaption>
+          <pre><code>&lt;preferred-source-button variant="google-colours" theme="dark"&gt;&lt;/preferred-source-button&gt;</code></pre>
+        </figure>
+        <figure class="card">
+          <preferred-source-button variant="neutral" domain="example.com"></preferred-source-button>
+          <figcaption>neutral · light</figcaption>
+          <pre><code>&lt;preferred-source-button variant="neutral"&gt;&lt;/preferred-source-button&gt;</code></pre>
+        </figure>
+        <figure class="card card-dark">
+          <preferred-source-button variant="neutral" theme="dark" style="--ps-bg:#111; --ps-colour:#fff;" domain="example.com"></preferred-source-button>
+          <figcaption>neutral · dark (custom properties)</figcaption>
+          <pre><code>&lt;preferred-source-button variant="neutral"
+  style="--ps-bg:#111; --ps-colour:#fff;"&gt;&lt;/preferred-source-button&gt;</code></pre>
+        </figure>
+      </div>
+    </section>
+
+    <section id="auto">
+      <h2><span class="num">02</span> Auto mode</h2>
+      <p>With <code>mode="auto"</code> the component places an attributed element in the light DOM and Google's SDK renders its own button into it. Google's script loads happily on unrecognised origins (localhost, GitHub Pages) yet silently paints nothing, so the component gives it <code>render-timeout</code> milliseconds (default 4000) after the script loads. If nothing appears it swaps to the deeplink fallback and emits <code>ps-fallback</code> with <code>reason: 'no-render'</code> — watch the event console below. That is the honest behaviour, not a fault: the box never stays empty.</p>
+      <div class="card demo-strip">
+        <preferred-source-button mode="auto" render-timeout="4000" id="auto-demo"></preferred-source-button>
+      </div>
+      <pre><code>&lt;preferred-source-button mode="auto" render-timeout="4000"&gt;&lt;/preferred-source-button&gt;</code></pre>
+    </section>
+
+    <section id="fallback">
+      <h2><span class="num">03</span> Deeplink fallback</h2>
+      <p>When the SDK is blocked (ad blocker, consent tool, offline), every package falls back to Google's documented deeplink. If you run a content blocker, the buttons above are already showing you this state. This one is forced to the fallback URL for a specific domain:</p>
+      <div class="card demo-strip">
+        <preferred-source-button href-fallback="https://www.google.com/preferences/source?q=opace.agency" label="Prefer opace.agency on Google"></preferred-source-button>
+      </div>
+      <pre><code>&lt;preferred-source-button
+  href-fallback="https://www.google.com/preferences/source?q=opace.agency"&gt;&lt;/preferred-source-button&gt;</code></pre>
+    </section>
+
+    <section id="events">
+      <h2><span class="num">04</span> Event console</h2>
+      <p>Every <code>ps-click</code>, <code>ps-ready</code> and <code>ps-fallback</code> on this page is appended below as JSON. This is the whole analytics story: clicks on triggers. Google's SDK has no completion callback, so no event on any page can report a finished add.</p>
+      <textarea id="event-console" readonly rows="10" spellcheck="false" aria-label="Event console"></textarea>
+    </section>
+
+    <section id="install">
+      <h2><span class="num">05</span> Install per framework</h2>
+      <div class="tabs" id="framework-tabs">
+        <div role="tablist" aria-label="Framework">
+          <button role="tab" aria-selected="true" data-tab="vanilla">Vanilla</button>
+          <button role="tab" aria-selected="false" data-tab="react">React / Next.js</button>
+          <button role="tab" aria-selected="false" data-tab="vue">Vue / Nuxt</button>
+          <button role="tab" aria-selected="false" data-tab="svelte">Svelte</button>
+          <button role="tab" aria-selected="false" data-tab="astro">Astro</button>
+        </div>
+        <div role="tabpanel" data-panel="vanilla">
+<pre><code>&lt;script type="module"
+  src="https://unpkg.com/@opace/preferred-source-element/dist/register.js"&gt;&lt;/script&gt;
+
+&lt;preferred-source-button&gt;&lt;/preferred-source-button&gt;</code></pre>
+        </div>
+        <div role="tabpanel" data-panel="react" hidden>
+<pre><code>npm i @opace/react-preferred-source
+
+import { PreferredSourceButton } from '@opace/react-preferred-source';
+
+&lt;PreferredSourceButton theme="dark" variant="google-colours"
+  onPsClick={(d) =&gt; window.gtag?.('event', 'preferred_source_click', d)} /&gt;</code></pre>
+        </div>
+        <div role="tabpanel" data-panel="vue" hidden>
+<pre><code>npm i @opace/vue-preferred-source
+
+&lt;script setup&gt;
+import { PreferredSourceButton } from '@opace/vue-preferred-source';
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;PreferredSourceButton theme="dark" variant="google-colours" @ps-click="onClick" /&gt;
+&lt;/template&gt;</code></pre>
+        </div>
+        <div role="tabpanel" data-panel="svelte" hidden>
+<pre><code>npm i @opace/svelte-preferred-source
+
+&lt;script&gt;
+  import { PreferredSourceButton } from '@opace/svelte-preferred-source';
+&lt;/script&gt;
+&lt;PreferredSourceButton theme="light" variant="neutral" on:ps-click={track} /&gt;</code></pre>
+        </div>
+        <div role="tabpanel" data-panel="astro" hidden>
+<pre><code>npm i @opace/astro-preferred-source
+
+// astro.config.mjs
+import preferredSource from '@opace/astro-preferred-source';
+export default defineConfig({ integrations: [preferredSource({ theme: 'dark' })] });
+
+---
+import { PreferredSourceButton } from '@opace/astro-preferred-source/components';
+---
+&lt;PreferredSourceButton /&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="notes">
+      <h2><span class="num">06</span> Eligibility and limits</h2>
+      <div class="card note">
+        <p><strong>Eligibility.</strong> Preferred Sources works for domains and subdomains only — <code>www.example.com</code> and <code>news.example.com</code> qualify; <code>example.com/blog</code> does not. The site must already resolve in Google's <a href="https://www.google.com/preferences/source" rel="noopener noreferrer">source preferences tool</a>.</p>
+        <p><strong>What "tracking" means here — and what it can't mean.</strong> Google's SDK exposes exactly two methods (<code>init</code>, <code>addPreferredSource</code>) and no completion callback or event. Nothing on the page can know whether the reader finished adding your site inside Google's popup. Every event this library emits (<code>ps-click</code>) measures clicks on the trigger, not confirmed additions. Treat the numbers accordingly.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built by <a href="https://www.opace.agency/">Opace</a> — a UK digital agency. Free tools:
+      <a href="https://opace.agency/tools/seo/google-preferred-source-checker/">Preferred Source eligibility checker</a> ·
+      <a href="https://opace.agency/tools/seo/google-preferred-source-button-generator/">Button generator</a>.
+    </p>
+    <p>Independently developed by Opace Digital Agency and not affiliated with, endorsed by or sponsored by Google.</p>
+  </footer>
+
+  <script src="demo.js"></script>
+</body>
+</html>

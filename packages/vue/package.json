@@ -1,0 +1,61 @@
+{
+  "name": "@opace/vue-preferred-source",
+  "version": "0.1.0",
+  "description": "Google Preferred Sources button for Vue 3 and Nuxt: SFC component, composable and plugin, SSR-safe, deeplink fallback, honest ps-click events.",
+  "license": "MIT",
+  "author": "Opace Ltd (https://www.opace.agency)",
+  "homepage": "https://opace.agency/tools/seo/google-preferred-source-button-generator/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpaceDigitalAgency/preferred-source.git",
+    "directory": "packages/vue"
+  },
+  "bugs": "https://github.com/OpaceDigitalAgency/preferred-source/issues",
+  "keywords": [
+    "google",
+    "preferred-sources",
+    "preferred-source",
+    "google-preferred-sources",
+    "seo",
+    "publisher",
+    "top-stories",
+    "ai-overviews",
+    "vue",
+    "vue3",
+    "nuxt",
+    "vue-component"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly -p tsconfig.build.json",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@opace/preferred-source-core": "workspace:^"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vue/test-utils": "^2.4.0",
+    "vite": "^5.4.0",
+    "vue": "^3.4.0",
+    "vue-tsc": "^2.0.0"
+  }
+}

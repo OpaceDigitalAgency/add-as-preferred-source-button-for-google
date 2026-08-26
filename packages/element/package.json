@@ -1,0 +1,55 @@
+{
+  "name": "@opace/preferred-source-element",
+  "version": "0.1.0",
+  "description": "<preferred-source-button> web component for Google's Preferred Sources button. Works in any framework or plain HTML; SSR-safe; deeplink fallback when the SDK is blocked.",
+  "license": "MIT",
+  "author": "Opace Ltd (https://www.opace.agency)",
+  "homepage": "https://opace.agency/tools/seo/google-preferred-source-button-generator/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpaceDigitalAgency/preferred-source.git",
+    "directory": "packages/element"
+  },
+  "bugs": "https://github.com/OpaceDigitalAgency/preferred-source/issues",
+  "keywords": [
+    "google",
+    "preferred-sources",
+    "preferred-source",
+    "google-preferred-sources",
+    "seo",
+    "publisher",
+    "top-stories",
+    "ai-overviews",
+    "web-component",
+    "custom-element",
+    "vanilla-js"
+  ],
+  "type": "module",
+  "sideEffects": ["./dist/register.js", "./dist/register.cjs"],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./register": {
+      "types": "./dist/register.d.ts",
+      "import": "./dist/register.js",
+      "require": "./dist/register.cjs"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@opace/preferred-source-core": "workspace:^"
+  }
+}

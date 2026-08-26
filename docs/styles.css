@@ -1,0 +1,136 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f1f1f;
+  --muted: #5f6368;
+  --card: #f8f9fa;
+  --border: #dadce0;
+  --accent: #4285f4;
+  --accent-hover: #34a853;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17181a;
+    --fg: #e8eaed;
+    --muted: #9aa0a6;
+    --card: #202124;
+    --border: #3c4043;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; }
+pre {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  overflow-x: auto;
+}
+a { color: var(--accent); }
+main, .hero, footer { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem; }
+.hero { padding-top: 4rem; padding-bottom: 2rem; text-align: center; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0.5rem 0; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.sub { color: var(--muted); max-width: 42rem; margin: 0 auto 1.5rem; }
+.badge-row { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+.badge {
+  font-size: 0.75rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+}
+.hero-demo { margin: 1.5rem 0; }
+.cta-row { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
+section { margin: 3.5rem 0; }
+h2 { font-size: 1.5rem; }
+.num { color: var(--accent); font-weight: 700; margin-right: 0.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem;
+  margin: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.card-dark { background: #202124; color: #e8eaed; }
+.card-dark pre { background: #17181a; border-color: #3c4043; color: #e8eaed; }
+.card figcaption { color: var(--muted); font-size: 0.8rem; margin: 0.6rem 0; }
+.card-dark figcaption { color: #9aa0a6; }
+.demo-strip { display: flex; align-items: center; gap: 1rem; padding: 1.5rem; margin-bottom: 1rem; }
+
+/* Static previews: pure HTML/CSS renderings that never depend on any script,
+   so every gallery card shows a visible button even with the SDK blocked. */
+.static-preview { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.6rem; }
+.mock-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: Roboto, system-ui, -apple-system, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.55em 1.1em;
+  border-radius: 4px;
+  line-height: 1.2;
+  cursor: default;
+  user-select: none;
+}
+.mock-light { background: #ffffff; color: #1f1f1f; border: 1px solid #dadce0; }
+.mock-dark { background: #202124; color: #e8eaed; border: 1px solid #5f6368; }
+.mock-icon { width: 1.1em; height: 1.1em; flex: none; }
+.preview-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.05rem 0.5rem;
+}
+.card-dark .preview-tag { color: #9aa0a6; border-color: #3c4043; }
+/* Until the element upgrades (or if its script is blocked), the static
+   preview is the card's button; hide the inert unknown element. */
+preferred-source-button:not(:defined) { display: none; }
+.note p { margin: 0.6rem 0; }
+#event-console {
+  width: 100%;
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  resize: vertical;
+}
+.tabs [role="tablist"] { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.tabs [role="tab"] {
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.tabs [role="tab"][aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

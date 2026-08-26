@@ -1,0 +1,52 @@
+{
+  "name": "@opace/astro-preferred-source",
+  "version": "0.1.0",
+  "description": "Astro integration and components for Google's Preferred Sources button: site-wide script injection, SSR-rendered button, deeplink fallback, honest ps-click events.",
+  "license": "MIT",
+  "author": "Opace Ltd (https://www.opace.agency)",
+  "homepage": "https://opace.agency/tools/seo/google-preferred-source-button-generator/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpaceDigitalAgency/preferred-source.git",
+    "directory": "packages/astro"
+  },
+  "bugs": "https://github.com/OpaceDigitalAgency/preferred-source/issues",
+  "keywords": [
+    "astro-integration",
+    "astro-component",
+    "withastro",
+    "astro",
+    "google",
+    "preferred-sources",
+    "preferred-source",
+    "google-preferred-sources",
+    "seo",
+    "publisher",
+    "top-stories",
+    "ai-overviews"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components": "./src/components/index.ts",
+    "./components/PreferredSourceButton.astro": "./src/components/PreferredSourceButton.astro",
+    "./components/PreferredSourceLink.astro": "./src/components/PreferredSourceLink.astro"
+  },
+  "files": ["src", "README.md"],
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "echo \"@opace/astro-preferred-source ships raw source — no build step\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@opace/preferred-source-core": "workspace:^"
+  },
+  "peerDependencies": {
+    "astro": "^4.0.0 || ^5.0.0"
+  }
+}

@@ -1,0 +1,10 @@
+{% comment %}
+  Google Preferred Sources button (auto mode).
+  Usage: {% render 'preferred-source', theme: 'light', lang: 'en' %}
+  Add the SDK script to theme.liquid <head> — see README.
+{% endcomment %}
+{%- assign ps_theme = theme | default: 'light' -%}
+<div google-add-preferred-source-btn data-theme="{{ ps_theme }}"{% if lang %} data-lang="{{ lang }}"{% endif %}></div>
+<noscript>
+  <a href="https://www.google.com/preferences/source?q={{ shop.domain }}" target="_blank" rel="noopener noreferrer">Add as a preferred source on Google</a>
+</noscript>
