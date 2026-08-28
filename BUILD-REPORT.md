@@ -82,6 +82,15 @@ Re-verified after the pass: `pnpm build`, `pnpm typecheck`, `pnpm lint` all clea
 - These corrections are local only. They are not committed, pushed or included in PR #1, and no npm publish or account action has run.
 - The release gate remains explicit: restore valid npm authentication for the established `@opacedev` publisher identity, confirm publish authority, obtain David's first-publication approval and configure a workflow credential or trusted publisher before merging the version PR.
 
+## Next.js 16 App Router proof (28 August 2026)
+
+- Packed the current `@opacedev/preferred-source-core` and `@opacedev/react-preferred-source` version 1.0.0 tarballs; the packed React dependency resolved from `workspace:^` to `@opacedev/preferred-source-core` `^1.0.0`.
+- Installed both tarballs into a fresh Next.js 16.3.3 App Router project with React 19.2.8.
+- Verified a Server Component importing `PreferredSourceButton` with serialisable props and a separate `"use client"` analytics wrapper for the function callback.
+- The production build compiled, passed TypeScript and generated 3/3 static pages. Explicit TypeScript and ESLint checks also passed.
+- A production Playwright check rendered both buttons, observed the analytics detail and SDK command, and reported zero console or page errors.
+- The React README now separates serialisable Server Component usage from the client analytics boundary. A separate Next-specific package is not required because the React entry already supplies the client boundary advised for library components.
+
 ## Deviations and deferrals
 
 1. **`ps-fallback` reason `'timeout'`** — the loader reports `blocked` for both script-error and timeout, so the element emits `reason: 'blocked'` in both cases (`'no-render'` is emitted distinctly for auto mode). Distinguishing would need extra loader state; deferred as cosmetic.

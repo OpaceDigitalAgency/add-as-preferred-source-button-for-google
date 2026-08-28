@@ -16,31 +16,63 @@ The button gives a reader a direct route to choose the publication in Google. Go
 
 That is personalisation for the individual reader, not a site-wide ranking factor or a guarantee of traffic, inclusion or AI citations. [Read Google's guidance](https://developers.google.com/search/docs/appearance/preferred-sources) and [click-through finding](https://blog.google/products-and-platforms/products/search/preferred-sources-language-expansion/).
 
-## Use from this repository
+## Build from this repository
 
 ```sh
 pnpm install
 pnpm --filter @opacedev/react-preferred-source build
 ```
 
+## Next.js App Router
+
+The package entry is a client component, so a Server Component can import and render it with serialisable props. Supply `domain` when you want the server-rendered fallback to use a known publication domain.
+
 ```tsx
+// app/page.tsx — Server Component
 import { PreferredSourceButton } from "@opacedev/react-preferred-source";
 
-export default function Footer() {
+export default function Page() {
   return (
     <PreferredSourceButton
+      domain="example.com"
       theme="dark"
       variant="google-colours"
-      onPsClick={(detail) =>
-        window.gtag?.("event", "preferred_source_click", detail)
-      }
+      label="Prefer this source"
     />
   );
 }
 ```
 
+Callbacks are functions, so keep analytics in a separate client wrapper instead of passing `onPsClick` from a Server Component.
+
+```tsx
+// app/TrackedPreferredSourceButton.tsx
+"use client";
+
+import { PreferredSourceButton } from "@opacedev/react-preferred-source";
+
+export function TrackedPreferredSourceButton() {
+  return (
+    <PreferredSourceButton
+      domain="example.com"
+      onPsClick={(detail) => {
+        navigator.sendBeacon(
+          "/analytics",
+          JSON.stringify({ event: "preferred_source_click", detail }),
+        );
+      }}
+    />
+  );
+}
+```
+
+The Server Component may render `<TrackedPreferredSourceButton />`; its function callback stays behind the client boundary.
+
+## Custom trigger hook
+
 ```tsx
 "use client";
+
 import { usePreferredSource } from "@opacedev/react-preferred-source";
 
 export function CustomCta() {
