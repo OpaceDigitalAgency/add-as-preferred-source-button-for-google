@@ -65,6 +65,7 @@ Re-verified after the pass: `pnpm build`, `pnpm typecheck`, `pnpm lint` all clea
 - Consumed `.changeset/initial-release.md` and set all six package manifests to exactly `1.0.0`. The normal GitHub changelog lookup requires a token locally, so the version step ran with that lookup temporarily disabled; `.changeset/config.json` was restored unchanged afterwards.
 - Added a package-specific `CHANGELOG.md` to every package and included it in each published file set.
 - Fresh verification on the versioned branch passes: frozen install, all six builds, 12 test files / 70 tests, typecheck, lint and six package dry-runs. Dry-runs report 1.0.0 and include the changelog: core 14 files, element 20, React 14, Vue 15, Svelte 13 and Astro 13.
+- The branch is open as [Version Packages PR #1](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/pull/1). Its GitHub `CI / ci` check succeeded and GitHub reports it ready to merge.
 - This branch is a reviewable release checkpoint only. Do not merge it until David has authenticated npm, confirmed owner/admin authority over `@opace`, approved the irreversible first publication and supplied the release workflow with an appropriate credential or trusted-publishing setup.
 
 ## Deviations and deferrals
