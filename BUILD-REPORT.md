@@ -59,6 +59,14 @@ Re-verified after the pass: `pnpm build`, `pnpm typecheck`, `pnpm lint` all clea
 - `pnpm install --frozen-lockfile`, build, 70 tests, typecheck and lint passed. All six `npm pack --dry-run --json` checks returned exit 0 with the intended README, licence, artwork and build/source files.
 - Publication remains owner-gated: local npm authentication is invalid, `@opace` ownership is unverified, and GitHub Actions is currently prohibited from creating the Changesets version pull request. No package was published.
 
+## Manual Version Packages branch (28 August 2026, fifth pass)
+
+- Prepared branch `codex/version-packages-1.0.0` from public `main` commit `b0dc463` because the repository currently prevents GitHub Actions from creating the automatic Changesets pull request.
+- Consumed `.changeset/initial-release.md` and set all six package manifests to exactly `1.0.0`. The normal GitHub changelog lookup requires a token locally, so the version step ran with that lookup temporarily disabled; `.changeset/config.json` was restored unchanged afterwards.
+- Added a package-specific `CHANGELOG.md` to every package and included it in each published file set.
+- Fresh verification on the versioned branch passes: frozen install, all six builds, 12 test files / 70 tests, typecheck, lint and six package dry-runs. Dry-runs report 1.0.0 and include the changelog: core 14 files, element 20, React 14, Vue 15, Svelte 13 and Astro 13.
+- This branch is a reviewable release checkpoint only. Do not merge it until David has authenticated npm, confirmed owner/admin authority over `@opace`, approved the irreversible first publication and supplied the release workflow with an appropriate credential or trusted-publishing setup.
+
 ## Deviations and deferrals
 
 1. **`ps-fallback` reason `'timeout'`** — the loader reports `blocked` for both script-error and timeout, so the element emits `reason: 'blocked'` in both cases (`'no-render'` is emitted distinctly for auto mode). Distinguishing would need extra loader state; deferred as cosmetic.

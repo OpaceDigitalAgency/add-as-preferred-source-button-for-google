@@ -1,6 +1,6 @@
 {
   "name": "@opace/svelte-preferred-source",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) for Svelte and SvelteKit: SSR-safe component, fallback and ps-click instrumentation.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
@@ -39,6 +39,7 @@
     "dist",
     "assets",
     "LICENSE",
+    "CHANGELOG.md",
     "README.md"
   ],
   "publishConfig": {
