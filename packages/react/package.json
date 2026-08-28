@@ -1,6 +1,6 @@
 {
   "name": "@opace/react-preferred-source",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) for React and Next.js: client component, hook, fallback and ps-click instrumentation.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",

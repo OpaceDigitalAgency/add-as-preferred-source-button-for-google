@@ -1,6 +1,6 @@
 {
   "name": "@opace/preferred-source-element",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) web component for plain HTML and frameworks, with SSR safety and deeplink fallback.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
