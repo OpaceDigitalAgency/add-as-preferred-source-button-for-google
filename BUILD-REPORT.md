@@ -32,7 +32,7 @@ Built 26 August 2026 against `specs/03-oss-packages-spec.md`, `BRAND-STYLE.md` a
 - `pnpm typecheck` — all packages pass (tsc, vue-tsc, svelte-check).
 - `pnpm lint` — clean.
 - SSR safety (bare Node imports of built output): core ESM + CJS ok, element `index.js` + `register.js` ok, react ok, vue ok. Svelte's `dist/index.js` re-exports a `.svelte` file, so bare Node cannot import it — by design of svelte-package (SvelteKit compiles it server-side); same applies to Astro's raw `.astro` source.
-- `npm publish --dry-run` — packs cleanly in all six package directories (core 8 files, element 14, react 8, vue 9, svelte 7, astro 7). Note: `workspace:^` ranges are rewritten to real semver by `changeset publish`/pnpm at actual publish time, not by a raw `npm publish`.
+- `npm pack --dry-run` — packs cleanly in all six package directories. After the 28 August README artwork update: core 13 files, element 19, react 13, vue 14, svelte 12 and astro 12. Note: `workspace:^` ranges are rewritten to real semver by `changeset publish`/pnpm at actual publish time, not by a raw `npm publish`.
 
 ## Post-build fixes (26 August 2026, second pass)
 
@@ -52,28 +52,35 @@ Re-verified after the pass: `pnpm build`, `pnpm typecheck`, `pnpm lint` all clea
 - **Branding**: the umbrella product name is now "Add as Preferred Source Button, Popup & Analytics for Google (SEO & AI Overviews)" in the root README H1, the docs `<title>`/H1/`og:title`/JSON-LD name and a new root package.json `description`, each with the developer-facing subtitle retained beneath. The root README's WordPress plugin mention uses the same display name. npm package names (`@opace/preferred-source-*`) and all code APIs are untouched.
 - Verified: `pnpm build` clean, `pnpm test` 70/70 (12 files), grep confirms zero remaining `OpaceDigitalAgency/preferred-source` or `github.io/preferred-source` references, docs hero renders the new name in a real browser with zero console errors.
 
+## npm release preflight (28 August 2026, fourth pass)
+
+- The Astro peer range now supports `^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0`. Fresh scratch projects installed the locally packed core and Astro packages and completed production builds on Astro 4.16.19, 5.18.2, 6.4.8 and 7.2.9.
+- The initial Changeset uses a major bump for all six unpublished `0.1.0` manifests. `changeset status` resolves every package to exactly `1.0.0`, matching the existing public GitHub release, without applying the version changes locally.
+- `pnpm install --frozen-lockfile`, build, 70 tests, typecheck and lint passed. All six `npm pack --dry-run --json` checks returned exit 0 with the intended README, licence, artwork and build/source files.
+- Publication remains owner-gated: local npm authentication is invalid, `@opace` ownership is unverified, and GitHub Actions is currently prohibited from creating the Changesets version pull request. No package was published.
+
 ## Deviations and deferrals
 
 1. **`ps-fallback` reason `'timeout'`** — the loader reports `blocked` for both script-error and timeout, so the element emits `reason: 'blocked'` in both cases (`'no-render'` is emitted distinctly for auto mode). Distinguishing would need extra loader state; deferred as cosmetic.
-2. **Browser/network acceptance items (§9.4 #6–#13, #16)** — single-script dedupe in a live page, blocked-network fallback timing, visual variant check, fresh Next.js/Nuxt/SvelteKit/Astro scratch apps, and cross-browser docs QA need real browsers/scaffolds and were not run in this environment. The behaviours are unit-tested equivalents (dedupe, blocked → fallback, events) but the live checks remain on the launch checklist.
-3. **Publish-time items** — npm org/`NPM_TOKEN`, GitHub repo creation with website/topics, Pages enablement, Astro catalogue verification (`npm view … keywords`) require accounts and a pushed repo.
+2. **Browser/network acceptance items (§9.4 #6–#13, #16)** — single-script dedupe in a live page, blocked-network fallback timing, visual variant check, fresh Next.js/Nuxt/SvelteKit scratch apps, and cross-browser docs QA remain on the launch checklist. Fresh Astro production builds now pass on majors 4, 5, 6 and 7.
+3. **Publish-time items** — npm authentication, `@opace` ownership, the publish credential and Astro catalogue verification (`npm view … keywords`) remain owner/account gates.
 4. **`packageManager`** pinned to the installed `pnpm@11.24.0` (spec floor was 9+; spec instructs resolving to latest compatible).
 5. **Element dist bundles core** (`noExternal`, `splitting: false`) so the unpkg/docs `register.js` snippet works without bare-specifier resolution; core stays a real dependency for npm consumers' metadata but its ~3 KB is inlined in element output.
-6. **Astro types** are minimal structural interfaces (no `astro` devDependency needed to typecheck); the integration object matches the Astro 4/5 hook shape and `astro` remains a peerDependency.
+6. **Astro types** are minimal structural interfaces (no `astro` devDependency needed to typecheck); the integration object matches the Astro 4–7 hook shape and `astro` remains a peerDependency.
 
 ## Publish-readiness checklist
 
 | Item | Status |
 |---|---|
-| §9.4 #1 install + build clean | Pass (this environment; CI re-checks on Node 20) |
-| #2 tests + core coverage ≥90 % | Pass — 58/58, 99.09 % lines |
+| §9.4 #1 install + build clean | Pass (this environment; CI re-checks on Node 22) |
+| #2 tests + core coverage ≥90 % | Pass — 70/70, 99.16 % lines from the coverage run |
 | #3 typecheck + lint | Pass |
 | #4 dist ESM+CJS+d.ts, publish dry-run | Pass (svelte/astro per their conventions) |
 | #5 bare-Node import safety | Pass for core/element/react/vue; svelte/astro N/A by packaging convention |
-| #6–#13 live-browser and scratch-app checks | Deferred to launch QA (needs browser/scaffolds) |
+| #6–#13 live-browser and scratch-app checks | Astro 4–7 scratch builds pass; remaining framework/browser checks stay on launch QA |
 | #14 astro keywords incl. `astro-integration` | Present in package.json; `npm view` check possible after publish |
 | #15 limitation note + footer + homepage in every README/package | Pass (verified by grep) |
 | #16 docs deploy cross-browser | Workflow written; deferred until repo exists |
 | #17 no names beginning "google"; descriptive first mentions | Pass |
-| Changeset for initial release | Added (`.changeset/initial-release.md`, minor across all six) |
-| Secrets/manual steps | `NPM_TOKEN` repo secret, GitHub repo website/topics, Pages source = Actions |
+| Changeset for initial release | Added (`.changeset/initial-release.md`, major across all six, resolving the unpublished `0.1.0` manifests to `1.0.0`) |
+| Secrets/manual steps | Valid npm authentication and `@opace` ownership; publish credential; allow GitHub Actions to create the Changesets pull request |

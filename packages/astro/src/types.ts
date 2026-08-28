@@ -1,7 +1,7 @@
 /**
  * Minimal structural types for the Astro hooks this integration uses.
  * Kept local so the package needs no astro devDependency to typecheck;
- * they match the shapes Astro 4/5 pass to `astro:config:setup`.
+ * they match the shapes Astro 4–7 pass to `astro:config:setup`.
  */
 export interface AstroIntegrationLogger {
   warn(message: string): void;

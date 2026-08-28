@@ -2,15 +2,19 @@
 
 ![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](assets/add-as-preferred-source-button-popup-google-hero.png)
 
-![Named Add as Preferred Source Button and Popup for Google logo](assets/preferred-source-button-popup-logo.png)
+![Preferred Sources button variants in light and dark themes](assets/preferred-source-button-variant-gallery.png)
 
-![Shared live demo capture showing the Preferred Sources button and suite status](assets/preferred-source-button-popup-live-demo-1905x871.png)
-
-_Shared live component demo capture: the Astro integration uses the same rendered button and deeplink fallback._
+_Variant gallery: the Astro integration supports the same rendered buttons and deeplink fallback._
 
 `@opace/astro-preferred-source` injects the publisher script for static sites and provides server-rendered button and deeplink components backed by the shared core.
 
 **Status:** built and tested in this repository, but **not published to npm**. The future command is `npm i @opace/astro-preferred-source`; use the workspace first.
+
+## Why publishers use Preferred Sources
+
+The button gives a reader a direct route to choose the publication in Google. Google says fresh and relevant content from a selected source is more likely to appear in that reader's **Top Stories** and may receive a preferred badge in **AI Mode** and **AI Overviews**. Google also reports roughly twice the click-through after a user selects a source.
+
+That is personalisation for the individual reader, not a site-wide ranking factor or a guarantee of traffic, inclusion or AI citations. [Read Google's guidance](https://developers.google.com/search/docs/appearance/preferred-sources) and [click-through finding](https://blog.google/products-and-platforms/products/search/preferred-sources-language-expansion/).
 
 ## Use from this repository
 
@@ -41,7 +45,7 @@ import { PreferredSourceButton, PreferredSourceLink } from '@opace/astro-preferr
 
 ## Requirements and limits
 
-- Astro 4 or 5 and Node.js 18+ for development.
+- Astro 4, 5, 6 or 7 and Node.js 18+ for development.
 - Auto mode is the default because Astro can deliver the attributed markup before the head script. Manual mode provides a styled trigger and fallback.
 - `injectScript: false` defers loading until a component needs it. `theme` and `lang` are the supported SDK configuration values.
 - The `ps-click` event reports a trigger click, not a completed Google preference action.

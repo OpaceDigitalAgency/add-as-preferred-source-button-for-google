@@ -1,28 +1,42 @@
 # Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — reference recipes
 
-![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](../.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+![Preferred Sources button variants in light and dark themes](../docs/assets/preferred-source-button-variant-gallery.png)
 
-![Shared live demo capture showing the Preferred Sources button and suite status](../docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+_The common outcome across the recipes: a visible, accessible Google Preferred Sources trigger with a documented fallback._
 
-_Shared live component demo capture: each reference recipe aims to place this documented trigger on a staging site._
+## What these pages are
+
+These are public GitHub implementation guides for platforms that do not need a maintained JavaScript package. A recipe is copied into the publisher's own theme or site project; it is not a separate hosted page, app, plugin or npm package.
+
+| Choose | When it fits | Destination |
+| --- | --- | --- |
+| A framework package | You use TypeScript, React, Vue, Svelte, Astro or a web component and want types, lifecycle handling, tests and releases. | [`packages/`](../packages/) now; npm after publication. |
+| A reference recipe | You use Hugo, Jekyll, Eleventy, Ghost, Webflow, Framer or Shopify and want the smallest copy-and-adapt implementation. | The platform's theme, template or custom-code area. |
+| The WordPress plugin | You need managed placement, conversion triggers, analytics, consent or multisite controls. | [Separate WordPress repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin). |
+
+## Why publishers add the button
+
+Google says fresh and relevant content from a reader's selected source is more likely to appear in that reader's **Top Stories** and may receive a preferred badge in **AI Mode** and **AI Overviews**. Google also reports roughly twice the click-through after a user selects a source.
+
+This is personalisation for that reader, not a site-wide ranking factor or a guarantee of traffic, inclusion or AI citations. The recipe simply creates a clear opt-in path and preserves a deeplink when the popup cannot render. [Read Google's publisher guidance](https://developers.google.com/search/docs/appearance/preferred-sources) and [click-through finding](https://blog.google/products-and-platforms/products/search/preferred-sources-language-expansion/).
 
 ## Local recipe renderings
 
 The captures below are local, platform-specific recipe renderings. They prove the checked-in snippets emit their documented placeholders; they do not claim that Google's popup can work on localhost.
 
-![Local Eleventy recipe rendering](../docs/assets/recipes/add-as-preferred-source-button-popup-google-eleventy-local-recipe-rendering-1280x800.png)
+![Local Eleventy recipe rendering](../docs/assets/recipes/add-as-preferred-source-button-popup-google-eleventy-local-recipe-rendering-1280x240.png)
 
 _Local Eleventy 3.1.2 rendering of the checked-in shortcode._
 
-![Local Hugo recipe rendering](../docs/assets/recipes/add-as-preferred-source-button-popup-google-hugo-local-recipe-rendering-1280x800.png)
+![Local Hugo recipe rendering](../docs/assets/recipes/add-as-preferred-source-button-popup-google-hugo-local-recipe-rendering-1280x240.png)
 
 _Local Hugo 0.147.0 rendering of the checked-in partial._
 
-![Local Shopify Liquid recipe rendering](../docs/assets/recipes/add-as-preferred-source-button-popup-google-shopify-local-recipe-rendering-1280x800.png)
+![Local Shopify Liquid recipe rendering](../docs/assets/recipes/add-as-preferred-source-button-popup-google-shopify-local-recipe-rendering-1280x240.png)
 
 _Local Shopify Liquid rendering of the checked-in snippet._
 
-Copy-paste reference recipes for adding Google's Preferred Sources button to static-site, CMS and site-builder projects. They use Google's documented automatic mode and a deeplink fallback; no package installation is required.
+Copy-paste reference recipes for adding Google's Preferred Sources button to static-site, CMS and site-builder projects. They use Google's documented automatic or manual mode and a deeplink fallback; no package installation is required.
 
 Each guide identifies the checked-in source file, the placement point and the rendered result to verify. Treat the snippets as starting points for the platform version and theme used by your project.
 

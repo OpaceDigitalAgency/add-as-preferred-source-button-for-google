@@ -18,7 +18,7 @@ A clear description of the fault, including any console output.
 **Expected behaviour**
 
 **Environment**
-- Framework and version (React 18, Nuxt 3, SvelteKit 2, Astro 5 …):
+- Framework and version (React 18, Nuxt 3, SvelteKit 2, Astro 7 …):
 - Browser:
 - Ad blocker or consent tool present? (the SDK is often blocked by these)
 

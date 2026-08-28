@@ -8,11 +8,27 @@ _Shared live component demo capture: the suite's button trigger on the public Gi
 
 An open-source TypeScript suite for adding Google's Preferred Sources button to publisher sites, with SSR-safe framework bindings and a deeplink fallback when the external SDK cannot render.
 
+**Need WordPress or a site audit instead?** Use the [full WordPress plugin](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) for placements, triggers, analytics, multisite and consent controls, or the [Chrome Site Checker](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) to audit an existing implementation. This repository is the developer framework and reference-recipe layer.
+
 **Release status, 26 August 2026:** GitHub release **v1.0.0** is public. The six `@opace` packages have been built and tested (**70/70 tests**) but are **not published to npm yet**. Use this repository and its pnpm workspace today; the npm commands below are labelled for after publication.
 
-[Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Live component demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Opace SEO services](https://opace.agency/services/seo/)
+[WordPress plugin](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) · [Chrome Site Checker](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) · [Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Live component demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/)
 
-[![CI](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml/badge.svg)](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml) [![MIT licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
+[CI workflow](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml) · [![MIT licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
+
+## What the Preferred Sources button changes in Google
+
+The button gives a reader a direct route to choose your domain as a Preferred Source. Google says fresh and relevant content from a selected source is more likely to appear in that reader's **Top Stories** and may receive a Preferred Sources badge in **AI Mode** and **AI Overviews**. Google has also reported that users who select a source are about twice as likely to click through to it.
+
+This is personalisation for that reader, not a general ranking factor or a guarantee of traffic, inclusion, AI citations or higher positions for everyone. The implementation value is a clear opt-in path at the point a reader already trusts your publication, with an honest fallback when Google's popup cannot render.
+
+[Google's publisher guidance](https://developers.google.com/search/docs/appearance/preferred-sources) · [Google's click-through finding](https://blog.google/products-and-platforms/products/search/preferred-sources-language-expansion/) · [Google's source preferences tool](https://www.google.com/preferences/source)
+
+## Button variants
+
+![Preferred Sources button variant gallery in light and dark themes](docs/assets/preferred-source-button-variant-gallery.png)
+
+_Six tested presentation examples: Google-default, Google-colours and neutral variants in light and dark contexts. Copyable snippets are available in the live demo._
 
 ## Framework coverage
 
@@ -27,6 +43,17 @@ An open-source TypeScript suite for adding Google's Preferred Sources button to 
 | Hugo, Jekyll, Eleventy, Ghost, Webflow, Framer and Shopify | [`recipes/`](recipes/)                  | No package planned                      |
 
 Angular and other frameworks can use the web component. The recipes are reference implementations, not platform-certified integrations.
+
+## Packages, recipes and publishing destinations
+
+| Surface | What it is | Where it goes |
+| --- | --- | --- |
+| Framework package | Versioned TypeScript/component source with tests, types and a package contract. | This monorepo now; npm only after the held packages are published. |
+| Reference recipe | A checked-in copy-and-adapt snippet for a platform without a maintained package. | Public GitHub documentation inside [`recipes/`](recipes/); copied into the publisher's own theme or project. |
+| WordPress plugin | The managed WordPress product with placements, triggers, analytics, consent and agency controls. | Its [separate GitHub repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin), then WordPress.org only after submission. |
+| Chrome Site Checker | A local browser audit companion; it does not install the button. | Its [separate GitHub repository](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension), then the Chrome Web Store only after submission. |
+
+Recipes do not become separate sites or npm packages. Their local screenshots prove that the checked-in snippet renders the documented placeholder; final Google behaviour must still be checked on an eligible public domain.
 
 ## Use the source workspace now
 
@@ -69,8 +96,8 @@ The element uses native buttons or links, a visible focus style and reduced-moti
 
 ## Compatibility
 
-- Node.js 18 or later; CI runs Node 20.
-- React 18+, Vue 3.3+, Svelte 4 or 5, and Astro 4 or 5, as declared by the individual package metadata.
+- Node.js 18 or later; CI runs Node 22.
+- React 18+, Vue 3.3+, Svelte 4 or 5, and Astro 4, 5, 6 or 7, as declared by the individual package metadata.
 - Browser rendering is required for the popup. SSR imports are safe, but server-only pages use an explicit deeplink if required.
 - A recognised, eligible hostname is required for Google's own UI to render. Localhost and staging are useful for integration checks but cannot prove eligibility.
 

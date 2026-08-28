@@ -2,15 +2,19 @@
 
 ![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](assets/add-as-preferred-source-button-popup-google-hero.png)
 
-![Named Add as Preferred Source Button and Popup for Google logo](assets/preferred-source-button-popup-logo.png)
+![Preferred Sources button variants in light and dark themes](assets/preferred-source-button-variant-gallery.png)
 
-![Shared live demo capture showing the Preferred Sources button and suite status](assets/preferred-source-button-popup-live-demo-1905x871.png)
-
-_Shared live component demo capture: the core loads the SDK and supplies the fallback used by the visible trigger._
+_Variant gallery: the core loads the SDK and supplies the fallback used by every visible trigger._
 
 `@opace/preferred-source-core` is the dependency-free base for the suite: idempotent SDK loading, SSR guards, auto-mode attributes, deeplink fallback and honest `ps-click` events.
 
 **Status:** built and covered by the repository's 70/70 test run, but **not published to npm**. Use the source workspace below; `npm i @opace/preferred-source-core` is for after publication.
+
+## Why publishers use Preferred Sources
+
+The button gives a reader a direct route to choose the publication in Google. Google says fresh and relevant content from a selected source is more likely to appear in that reader's **Top Stories** and may receive a preferred badge in **AI Mode** and **AI Overviews**. Google also reports roughly twice the click-through after a user selects a source.
+
+That is personalisation for the individual reader, not a site-wide ranking factor or a guarantee of traffic, inclusion or AI citations. [Read Google's guidance](https://developers.google.com/search/docs/appearance/preferred-sources) and [click-through finding](https://blog.google/products-and-platforms/products/search/preferred-sources-language-expansion/).
 
 ## Use from this repository
 

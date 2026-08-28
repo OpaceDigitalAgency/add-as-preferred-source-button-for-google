@@ -2,15 +2,19 @@
 
 ![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](assets/add-as-preferred-source-button-popup-google-hero.png)
 
-![Named Add as Preferred Source Button and Popup for Google logo](assets/preferred-source-button-popup-logo.png)
+![Preferred Sources button variants in light and dark themes](assets/preferred-source-button-variant-gallery.png)
 
-![Shared live demo capture showing the Preferred Sources button and suite status](assets/preferred-source-button-popup-live-demo-1905x871.png)
-
-_Shared live component demo capture: Svelte and SvelteKit render the same button shell and fallback path._
+_Variant gallery: Svelte and SvelteKit render the same button shell and fallback path._
 
 `@opace/svelte-preferred-source` is a Svelte component that loads the SDK in `onMount`, emits `ps-click`, and switches to the documented deeplink if the SDK is unavailable.
 
 **Status:** built and tested in this repository, but **not published to npm**. The future command is `npm i @opace/svelte-preferred-source`; use the workspace first.
+
+## Why publishers use Preferred Sources
+
+The button gives a reader a direct route to choose the publication in Google. Google says fresh and relevant content from a selected source is more likely to appear in that reader's **Top Stories** and may receive a preferred badge in **AI Mode** and **AI Overviews**. Google also reports roughly twice the click-through after a user selects a source.
+
+That is personalisation for the individual reader, not a site-wide ranking factor or a guarantee of traffic, inclusion or AI citations. [Read Google's guidance](https://developers.google.com/search/docs/appearance/preferred-sources) and [click-through finding](https://blog.google/products-and-platforms/products/search/preferred-sources-language-expansion/).
 
 ## Use from this repository
 

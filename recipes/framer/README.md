@@ -1,16 +1,20 @@
 # Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — Framer reference recipe
 
-![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](../../.github/assets/add-as-preferred-source-button-popup-google-hero.png)
-
-![Shared live demo capture showing the Preferred Sources button and suite status](../../docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
+![Preferred Sources button variants in light and dark themes](../../docs/assets/preferred-source-button-variant-gallery.png)
 
 _Shared live component demo capture: verify the Framer component renders this trigger on a published staging site._
 
-![Local Framer-compatible React rendering of the Preferred Sources code component](../../docs/assets/recipes/add-as-preferred-source-button-popup-google-framer-local-recipe-rendering-1280x800.png)
+![Local Framer-compatible React rendering of the Preferred Sources code component](../../docs/assets/recipes/add-as-preferred-source-button-popup-google-framer-local-recipe-rendering-1280x700.png)
 
 _Local Framer-compatible React code-component rendering: the checked-in component renders its documented manual trigger. This is not a hosted Framer editor or published site._
 
 This self-contained Framer code component uses Google's documented manual mode. It has no package dependency.
+
+## Why this matters for publishers
+
+Google says fresh and relevant content from a reader's selected source is more likely to appear in that reader's **Top Stories** and may receive a preferred badge in **AI Mode** and **AI Overviews**. Google also reports roughly twice the click-through after a user selects a source.
+
+This is personalisation for that reader, not a site-wide ranking factor or a guarantee of traffic, inclusion or AI citations. The recipe creates the opt-in path; Google still decides which content appears. [Read Google's publisher guidance](https://developers.google.com/search/docs/appearance/preferred-sources).
 
 > **Check eligibility first.** Google supports domains and subdomains, not individual subdirectories. `example.com` and `news.example.com` can be eligible; `example.com/blog` cannot be preferred separately. Confirm that your domain appears in Google's [source preferences tool](https://www.google.com/preferences/source) before implementation.
 
