@@ -5,7 +5,7 @@ labels: bug
 ---
 
 **Package and version**
-e.g. @opace/preferred-source-core 0.1.0
+e.g. @opacedev/preferred-source-core 1.0.0
 
 **What happened**
 A clear description of the fault, including any console output.

@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { resetSdkLoaderForTests } from '@opace/preferred-source-core';
-import type { PsClickDetail } from '@opace/preferred-source-core';
+import { resetSdkLoaderForTests } from '@opacedev/preferred-source-core';
+import type { PsClickDetail } from '@opacedev/preferred-source-core';
 import '../src/register';
 import '../src/register'; // second import must not throw (idempotent define)
 import type { PreferredSourceButton } from '../src/index';

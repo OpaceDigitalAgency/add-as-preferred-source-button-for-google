@@ -1,4 +1,4 @@
-# @opace/vue-preferred-source
+# @opacedev/vue-preferred-source
 
 ## 1.0.0
 

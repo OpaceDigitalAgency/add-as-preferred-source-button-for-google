@@ -9,7 +9,7 @@
     </title>
     <meta
       name="description"
-      content="Live component demo for the @opace Preferred Sources packages: web component, React, Vue, Svelte and Astro wrappers with a deeplink fallback and click instrumentation."
+      content="Live component demo for the @opacedev Preferred Sources packages: web component, React, Vue, Svelte and Astro wrappers with a deeplink fallback and click instrumentation."
     />
     <link
       rel="canonical"
@@ -59,7 +59,7 @@
       <p class="sub">
         Google's official Preferred Sources button SDK for every major
         framework: live demos of the
-        <code>@opace/preferred-source-*</code> packages, with a deeplink
+        <code>@opacedev/preferred-source-*</code> packages, with a deeplink
         fallback and click instrumentation.
       </p>
       <div class="hero-demo">
@@ -83,7 +83,7 @@
           >View the repo →</a
         >
         <a
-          href="https://opace.agency/add-as-preferred-source-button-for-google/button-generator/"
+          href="https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/"
           >Button generator ↗</a
         >
         <a
@@ -315,47 +315,45 @@
             </button>
           </div>
           <div role="tabpanel" data-panel="vanilla">
-            <pre><code># Current source workspace
-pnpm install
-pnpm --filter @opace/preferred-source-element build
+            <pre><code>npm i @opacedev/preferred-source-element
 
-# After npm publication: npm i @opace/preferred-source-element</code></pre>
+import '@opacedev/preferred-source-element/register';</code></pre>
           </div>
           <div role="tabpanel" data-panel="react" hidden>
-            <pre><code># After npm publication: npm i @opace/react-preferred-source
+            <pre><code>npm i @opacedev/react-preferred-source
 
-import { PreferredSourceButton } from '@opace/react-preferred-source';
+import { PreferredSourceButton } from '@opacedev/react-preferred-source';
 
 &lt;PreferredSourceButton theme="dark" variant="google-colours"
   onPsClick={(d) =&gt; window.gtag?.('event', 'preferred_source_click', d)} /&gt;</code></pre>
           </div>
           <div role="tabpanel" data-panel="vue" hidden>
-            <pre><code># After npm publication: npm i @opace/vue-preferred-source
+            <pre><code>npm i @opacedev/vue-preferred-source
 
 &lt;script setup&gt;
-import { PreferredSourceButton } from '@opace/vue-preferred-source';
+import { PreferredSourceButton } from '@opacedev/vue-preferred-source';
 &lt;/script&gt;
 &lt;template&gt;
   &lt;PreferredSourceButton theme="dark" variant="google-colours" @ps-click="onClick" /&gt;
 &lt;/template&gt;</code></pre>
           </div>
           <div role="tabpanel" data-panel="svelte" hidden>
-            <pre><code># After npm publication: npm i @opace/svelte-preferred-source
+            <pre><code>npm i @opacedev/svelte-preferred-source
 
 &lt;script&gt;
-  import { PreferredSourceButton } from '@opace/svelte-preferred-source';
+  import { PreferredSourceButton } from '@opacedev/svelte-preferred-source';
 &lt;/script&gt;
 &lt;PreferredSourceButton theme="light" variant="neutral" on:ps-click={track} /&gt;</code></pre>
           </div>
           <div role="tabpanel" data-panel="astro" hidden>
-            <pre><code># After npm publication: npm i @opace/astro-preferred-source
+            <pre><code>npm i @opacedev/astro-preferred-source
 
 // astro.config.mjs
-import preferredSource from '@opace/astro-preferred-source';
+import preferredSource from '@opacedev/astro-preferred-source';
 export default defineConfig({ integrations: [preferredSource({ theme: 'dark' })] });
 
 ---
-import { PreferredSourceButton } from '@opace/astro-preferred-source/components';
+import { PreferredSourceButton } from '@opacedev/astro-preferred-source/components';
 ---
 &lt;PreferredSourceButton /&gt;</code></pre>
           </div>
@@ -400,7 +398,7 @@ import { PreferredSourceButton } from '@opace/astro-preferred-source/components'
         >
         ·
         <a
-          href="https://opace.agency/add-as-preferred-source-button-for-google/button-generator/"
+          href="https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/"
           >Button generator</a
         >.
       </p>

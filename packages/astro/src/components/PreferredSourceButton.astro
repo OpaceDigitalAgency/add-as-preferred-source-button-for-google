@@ -63,7 +63,7 @@ const deeplink =
 
 {mode === 'auto' && (
   <script>
-    import { watchAutoRenderAfterLoad } from '@opace/preferred-source-core';
+    import { watchAutoRenderAfterLoad } from '@opacedev/preferred-source-core';
 
     document.querySelectorAll<HTMLElement>('[data-opace-ps-auto]').forEach((wrapper) => {
       if (wrapper.dataset.opacePsWired) return;
@@ -100,8 +100,8 @@ const deeplink =
       getSdkStatus,
       loadSdk,
       openPreferredSourceDialog,
-    } from '@opace/preferred-source-core';
-    import type { PreferredSourceTheme, PsClickDetail } from '@opace/preferred-source-core';
+    } from '@opacedev/preferred-source-core';
+    import type { PreferredSourceTheme, PsClickDetail } from '@opacedev/preferred-source-core';
 
     document.querySelectorAll<HTMLButtonElement>('[data-opace-ps-btn]').forEach((button) => {
       if (button.dataset.opacePsWired) return;

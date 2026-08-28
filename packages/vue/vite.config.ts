@@ -11,7 +11,7 @@ export default defineConfig({
     },
     sourcemap: true,
     rollupOptions: {
-      external: ['vue', /^@opace\//],
+      external: ['vue', /^@opacedev\//],
     },
   },
   test: {

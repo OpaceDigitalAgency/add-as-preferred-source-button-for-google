@@ -1,4 +1,4 @@
-# @opace/preferred-source-element
+# @opacedev/preferred-source-element
 
 ## 1.0.0
 

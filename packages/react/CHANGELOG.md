@@ -1,4 +1,4 @@
-# @opace/react-preferred-source
+# @opacedev/react-preferred-source
 
 ## 1.0.0
 

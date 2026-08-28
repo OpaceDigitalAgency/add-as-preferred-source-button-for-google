@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { resetSdkLoaderForTests } from '@opace/preferred-source-core';
-import type { PsClickDetail } from '@opace/preferred-source-core';
+import { resetSdkLoaderForTests } from '@opacedev/preferred-source-core';
+import type { PsClickDetail } from '@opacedev/preferred-source-core';
 import { PreferredSourceButton } from '../src/index';
 
 beforeEach(() => {

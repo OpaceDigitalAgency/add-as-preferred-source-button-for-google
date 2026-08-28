@@ -6,9 +6,9 @@
 
 _Variant gallery: Svelte and SvelteKit render the same button shell and fallback path._
 
-`@opace/svelte-preferred-source` is a Svelte component that loads the SDK in `onMount`, emits `ps-click`, and switches to the documented deeplink if the SDK is unavailable.
+`@opacedev/svelte-preferred-source` is a Svelte component that loads the SDK in `onMount`, emits `ps-click`, and switches to the documented deeplink if the SDK is unavailable.
 
-**Status:** built and tested in this repository, but **not published to npm**. The future command is `npm i @opace/svelte-preferred-source`; use the workspace first.
+Install from npm with `npm i @opacedev/svelte-preferred-source`.
 
 ## Why publishers use Preferred Sources
 
@@ -20,12 +20,12 @@ That is personalisation for the individual reader, not a site-wide ranking facto
 
 ```sh
 pnpm install
-pnpm --filter @opace/svelte-preferred-source build
+pnpm --filter @opacedev/svelte-preferred-source build
 ```
 
 ```svelte
 <script>
-  import { PreferredSourceButton } from '@opace/svelte-preferred-source';
+  import { PreferredSourceButton } from '@opacedev/svelte-preferred-source';
 </script>
 
 <PreferredSourceButton theme="light" variant="neutral" on:ps-click={track} />

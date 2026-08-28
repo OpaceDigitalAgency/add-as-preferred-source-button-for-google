@@ -37,12 +37,12 @@ export default function preferredSource(
   options: PreferredSourceIntegrationOptions = {},
 ): AstroIntegration {
   return {
-    name: '@opace/astro-preferred-source',
+    name: '@opacedev/astro-preferred-source',
     hooks: {
       'astro:config:setup': ({ injectScript, logger }) => {
         if (options.mode === 'manual' && options.injectScript === false) {
           logger.warn(
-            '@opace/astro-preferred-source: mode "manual" with injectScript: false means nothing initialises until a component loads. Harmless, but check it is what you intended.',
+            '@opacedev/astro-preferred-source: mode "manual" with injectScript: false means nothing initialises until a component loads. Harmless, but check it is what you intended.',
           );
         }
         if (options.injectScript !== false) {

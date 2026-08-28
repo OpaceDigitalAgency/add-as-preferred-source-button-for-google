@@ -6,9 +6,9 @@
 
 _Variant gallery: the core loads the SDK and supplies the fallback used by every visible trigger._
 
-`@opace/preferred-source-core` is the dependency-free base for the suite: idempotent SDK loading, SSR guards, auto-mode attributes, deeplink fallback and honest `ps-click` events.
+`@opacedev/preferred-source-core` is the dependency-free base for the suite: idempotent SDK loading, SSR guards, auto-mode attributes, deeplink fallback and honest `ps-click` events.
 
-**Status:** built and covered by the repository's 70/70 test run, but **not published to npm**. Use the source workspace below; `npm i @opace/preferred-source-core` is for after publication.
+Install from npm with `npm i @opacedev/preferred-source-core`.
 
 ## Why publishers use Preferred Sources
 
@@ -20,7 +20,7 @@ That is personalisation for the individual reader, not a site-wide ranking facto
 
 ```sh
 pnpm install
-pnpm --filter @opace/preferred-source-core build
+pnpm --filter @opacedev/preferred-source-core build
 ```
 
 ```ts
@@ -28,7 +28,7 @@ import {
   emitPsClick,
   loadSdk,
   openPreferredSourceDialog,
-} from "@opace/preferred-source-core";
+} from "@opacedev/preferred-source-core";
 
 void loadSdk({ theme: "dark", lang: "en" });
 myButton.addEventListener("click", () => {

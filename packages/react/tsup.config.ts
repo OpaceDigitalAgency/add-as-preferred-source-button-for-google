@@ -7,7 +7,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   target: 'es2020',
-  external: [/^@opace\//, 'react', 'react/jsx-runtime'],
+  external: [/^@opacedev\//, 'react', 'react/jsx-runtime'],
   esbuildOptions(options) {
     // Keep the 'use client' directive at the top of the emitted bundles.
     options.banner = { js: "'use client';" };

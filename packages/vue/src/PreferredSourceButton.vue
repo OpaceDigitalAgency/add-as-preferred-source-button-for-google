@@ -8,8 +8,8 @@ import {
   loadSdk,
   openPreferredSourceDialog,
   watchAutoRenderAfterLoad,
-} from '@opace/preferred-source-core';
-import type { PreferredSourceTheme, PsClickDetail, SdkMode, SdkStatus } from '@opace/preferred-source-core';
+} from '@opacedev/preferred-source-core';
+import type { PreferredSourceTheme, PsClickDetail, SdkMode, SdkStatus } from '@opacedev/preferred-source-core';
 
 const props = withDefaults(
   defineProps<{

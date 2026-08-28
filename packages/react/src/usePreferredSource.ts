@@ -7,13 +7,13 @@ import {
   isBrowser,
   loadSdk,
   openPreferredSourceDialog,
-} from '@opace/preferred-source-core';
+} from '@opacedev/preferred-source-core';
 import type {
   OpenOutcome,
   PreferredSourceInitOptions,
   SdkMode,
   SdkStatus,
-} from '@opace/preferred-source-core';
+} from '@opacedev/preferred-source-core';
 
 export interface UsePreferredSourceOptions extends PreferredSourceInitOptions {
   domain?: string;

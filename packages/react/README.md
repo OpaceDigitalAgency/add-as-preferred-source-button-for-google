@@ -6,9 +6,9 @@
 
 _Variant gallery: React and Next.js use the same trigger and fallback behaviour._
 
-`@opace/react-preferred-source` supplies a typed `PreferredSourceButton` and `usePreferredSource()` hook. Both load the SDK after mount and provide a deeplink fallback.
+`@opacedev/react-preferred-source` supplies a typed `PreferredSourceButton` and `usePreferredSource()` hook. Both load the SDK after mount and provide a deeplink fallback.
 
-**Status:** built and tested in this repository, but **not published to npm**. The future command is `npm i @opace/react-preferred-source`; use the workspace first.
+Install from npm with `npm i @opacedev/react-preferred-source`.
 
 ## Why publishers use Preferred Sources
 
@@ -20,11 +20,11 @@ That is personalisation for the individual reader, not a site-wide ranking facto
 
 ```sh
 pnpm install
-pnpm --filter @opace/react-preferred-source build
+pnpm --filter @opacedev/react-preferred-source build
 ```
 
 ```tsx
-import { PreferredSourceButton } from "@opace/react-preferred-source";
+import { PreferredSourceButton } from "@opacedev/react-preferred-source";
 
 export default function Footer() {
   return (
@@ -41,7 +41,7 @@ export default function Footer() {
 
 ```tsx
 "use client";
-import { usePreferredSource } from "@opace/react-preferred-source";
+import { usePreferredSource } from "@opacedev/react-preferred-source";
 
 export function CustomCta() {
   const { status, open, deeplink } = usePreferredSource({

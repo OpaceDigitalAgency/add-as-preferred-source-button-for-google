@@ -1,10 +1,10 @@
 {
-  "name": "@opace/react-preferred-source",
+  "name": "@opacedev/react-preferred-source",
   "version": "1.0.0",
   "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) for React and Next.js: client component, hook, fallback and ps-click instrumentation.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
-  "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
+  "homepage": "https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google.git",
@@ -56,7 +56,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@opace/preferred-source-core": "workspace:^"
+    "@opacedev/preferred-source-core": "workspace:^"
   },
   "peerDependencies": {
     "react": ">=18",

@@ -10,9 +10,7 @@ An open-source TypeScript suite for adding Google's Preferred Sources button to 
 
 **Need WordPress or a site audit instead?** Use the [full WordPress plugin](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) for placements, triggers, analytics, multisite and consent controls, or the [Chrome Site Checker](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) to audit an existing implementation. This repository is the developer framework and reference-recipe layer.
 
-**Release status, 26 August 2026:** GitHub release **v1.0.0** is public. The six `@opace` packages have been built and tested (**70/70 tests**) but are **not published to npm yet**. Use this repository and its pnpm workspace today; the npm commands below are labelled for after publication.
-
-[WordPress plugin](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) · [Chrome Site Checker](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) · [Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Live component demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/)
+[WordPress plugin](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) · [Chrome Site Checker](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) · [Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Live component demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/)
 
 [CI workflow](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml) · [![MIT licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 
@@ -32,14 +30,14 @@ _Six tested presentation examples: Google-default, Google-colours and neutral va
 
 ## Framework coverage
 
-| Use case                                                   | Source workspace                        | npm command after publication           |
+| Use case                                                   | Source                                  | Install                                 |
 | ---------------------------------------------------------- | --------------------------------------- | --------------------------------------- |
-| Low-level TypeScript                                       | [`packages/core`](packages/core/)       | `npm i @opace/preferred-source-core`    |
-| Web component, vanilla JS or Angular                       | [`packages/element`](packages/element/) | `npm i @opace/preferred-source-element` |
-| React and Next.js                                          | [`packages/react`](packages/react/)     | `npm i @opace/react-preferred-source`   |
-| Vue 3 and Nuxt                                             | [`packages/vue`](packages/vue/)         | `npm i @opace/vue-preferred-source`     |
-| Svelte and SvelteKit                                       | [`packages/svelte`](packages/svelte/)   | `npm i @opace/svelte-preferred-source`  |
-| Astro integration and components                           | [`packages/astro`](packages/astro/)     | `npm i @opace/astro-preferred-source`   |
+| Low-level TypeScript                                       | [`packages/core`](packages/core/)       | `npm i @opacedev/preferred-source-core`    |
+| Web component, vanilla JS or Angular                       | [`packages/element`](packages/element/) | `npm i @opacedev/preferred-source-element` |
+| React and Next.js                                          | [`packages/react`](packages/react/)     | `npm i @opacedev/react-preferred-source`   |
+| Vue 3 and Nuxt                                             | [`packages/vue`](packages/vue/)         | `npm i @opacedev/vue-preferred-source`     |
+| Svelte and SvelteKit                                       | [`packages/svelte`](packages/svelte/)   | `npm i @opacedev/svelte-preferred-source`  |
+| Astro integration and components                           | [`packages/astro`](packages/astro/)     | `npm i @opacedev/astro-preferred-source`   |
 | Hugo, Jekyll, Eleventy, Ghost, Webflow, Framer and Shopify | [`recipes/`](recipes/)                  | No package planned                      |
 
 Angular and other frameworks can use the web component. The recipes are reference implementations, not platform-certified integrations.
@@ -48,14 +46,14 @@ Angular and other frameworks can use the web component. The recipes are referenc
 
 | Surface | What it is | Where it goes |
 | --- | --- | --- |
-| Framework package | Versioned TypeScript/component source with tests, types and a package contract. | This monorepo now; npm only after the held packages are published. |
+| Framework package | Versioned TypeScript/component source with tests, types and a package contract. | Install from npm; source, issues and release history stay in this monorepo. |
 | Reference recipe | A checked-in copy-and-adapt snippet for a platform without a maintained package. | Public GitHub documentation inside [`recipes/`](recipes/); copied into the publisher's own theme or project. |
-| WordPress plugin | The managed WordPress product with placements, triggers, analytics, consent and agency controls. | Its [separate GitHub repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin), then WordPress.org only after submission. |
-| Chrome Site Checker | A local browser audit companion; it does not install the button. | Its [separate GitHub repository](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension), then the Chrome Web Store only after submission. |
+| WordPress plugin | The managed WordPress product with placements, triggers, analytics, consent and agency controls. | Its [separate GitHub repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) and WordPress.org listing. |
+| Chrome Site Checker | A local browser audit companion; it does not install the button. | Its [separate GitHub repository](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) and Chrome Web Store listing. |
 
 Recipes do not become separate sites or npm packages. Their local screenshots prove that the checked-in snippet renders the documented placeholder; final Google behaviour must still be checked on an eligible public domain.
 
-## Use the source workspace now
+## Develop from source
 
 ```sh
 git clone https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google.git
@@ -65,7 +63,7 @@ pnpm build
 pnpm test
 ```
 
-Import a workspace package from an application in this monorepo, or use a recipe. Do not use `npm install @opace/...` or unpkg until the packages have been published.
+Install a package from npm using the command in the coverage table. Use this workspace when contributing to the packages or testing changes across the complete suite.
 
 ## How it works
 
@@ -111,9 +109,9 @@ The SDK may be blocked, unavailable, or unable to render for the current hostnam
 
 No. Google exposes no completion signal. Record only your own click event and describe it as a click.
 
-### When can I install from npm or unpkg?
+### Which package should I install?
 
-After the six packages have been published. Until then, use the workspace instructions above. The maintained npm package names are shown in the coverage table so the publication substitution is mechanical.
+Choose the framework-specific package in the coverage table. Use `@opacedev/preferred-source-element` for plain HTML, Angular or another framework that supports web components, and `@opacedev/preferred-source-core` for a custom integration.
 
 ## Related Opace products
 

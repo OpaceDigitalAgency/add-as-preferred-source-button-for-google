@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react';
-import { emitPsClick, isBrowser, watchAutoRenderAfterLoad } from '@opace/preferred-source-core';
-import type { PreferredSourceTheme, PsClickDetail, SdkMode } from '@opace/preferred-source-core';
+import { emitPsClick, isBrowser, watchAutoRenderAfterLoad } from '@opacedev/preferred-source-core';
+import type { PreferredSourceTheme, PsClickDetail, SdkMode } from '@opacedev/preferred-source-core';
 import { usePreferredSource } from './usePreferredSource';
 
 const DEFAULT_LABEL = 'Add as a preferred source on Google';

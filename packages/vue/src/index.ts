@@ -6,12 +6,12 @@ import {
   isBrowser,
   loadSdk,
   openPreferredSourceDialog,
-} from '@opace/preferred-source-core';
+} from '@opacedev/preferred-source-core';
 import type {
   OpenOutcome,
   PreferredSourceInitOptions,
   SdkStatus,
-} from '@opace/preferred-source-core';
+} from '@opacedev/preferred-source-core';
 import PreferredSourceButton from './PreferredSourceButton.vue';
 
 export { PreferredSourceButton };

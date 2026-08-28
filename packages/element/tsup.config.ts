@@ -9,6 +9,6 @@ export default defineConfig({
   target: 'es2020',
   // Bundle the tiny core so dist/register.js works from a CDN <script type="module">
   // with no bare-specifier resolution. splitting: false keeps each entry self-contained.
-  noExternal: [/^@opace\//],
+  noExternal: [/^@opacedev\//],
   splitting: false,
 });

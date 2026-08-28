@@ -1,10 +1,10 @@
 {
-  "name": "@opace/preferred-source-core",
+  "name": "@opacedev/preferred-source-core",
   "version": "1.0.0",
   "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) TypeScript core: SDK loader, SSR guard, deeplink fallback and ps-click instrumentation.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
-  "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
+  "homepage": "https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google.git",

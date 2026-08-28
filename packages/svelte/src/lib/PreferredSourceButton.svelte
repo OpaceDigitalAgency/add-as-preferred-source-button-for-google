@@ -8,13 +8,13 @@
     loadSdk,
     openPreferredSourceDialog,
     watchAutoRenderAfterLoad,
-  } from '@opace/preferred-source-core';
+  } from '@opacedev/preferred-source-core';
   import type {
     PreferredSourceTheme,
     PsClickDetail,
     SdkMode,
     SdkStatus,
-  } from '@opace/preferred-source-core';
+  } from '@opacedev/preferred-source-core';
 
   export let theme: PreferredSourceTheme = 'light';
   export let lang: string | undefined = undefined;

@@ -1,4 +1,4 @@
-# @opace/astro-preferred-source
+# @opacedev/astro-preferred-source
 
 ## 1.0.0
 

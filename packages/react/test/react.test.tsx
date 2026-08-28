@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, renderHook, waitFor } from '@testing-library/react';
-import { resetSdkLoaderForTests } from '@opace/preferred-source-core';
-import type { PsClickDetail } from '@opace/preferred-source-core';
+import { resetSdkLoaderForTests } from '@opacedev/preferred-source-core';
+import type { PsClickDetail } from '@opacedev/preferred-source-core';
 import { PreferredSourceButton, usePreferredSource } from '../src/index';
 
 beforeEach(() => {

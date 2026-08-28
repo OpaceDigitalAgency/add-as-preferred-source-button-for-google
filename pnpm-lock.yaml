@@ -44,7 +44,7 @@ importers:
 
   packages/astro:
     dependencies:
-      '@opace/preferred-source-core':
+      '@opacedev/preferred-source-core':
         specifier: workspace:^
         version: link:../core
       astro:
@@ -55,13 +55,13 @@ importers:
 
   packages/element:
     dependencies:
-      '@opace/preferred-source-core':
+      '@opacedev/preferred-source-core':
         specifier: workspace:^
         version: link:../core
 
   packages/react:
     dependencies:
-      '@opace/preferred-source-core':
+      '@opacedev/preferred-source-core':
         specifier: workspace:^
         version: link:../core
     devDependencies:
@@ -83,7 +83,7 @@ importers:
 
   packages/svelte:
     dependencies:
-      '@opace/preferred-source-core':
+      '@opacedev/preferred-source-core':
         specifier: workspace:^
         version: link:../core
     devDependencies:
@@ -108,7 +108,7 @@ importers:
 
   packages/vue:
     dependencies:
-      '@opace/preferred-source-core':
+      '@opacedev/preferred-source-core':
         specifier: workspace:^
         version: link:../core
     devDependencies:

@@ -1,4 +1,4 @@
-# @opace/svelte-preferred-source
+# @opacedev/svelte-preferred-source
 
 ## 1.0.0
 

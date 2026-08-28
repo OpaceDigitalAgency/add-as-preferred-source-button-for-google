@@ -9,12 +9,12 @@ import {
   normaliseDomain,
   openPreferredSourceDialog,
   watchAutoRenderAfterLoad,
-} from '@opace/preferred-source-core';
+} from '@opacedev/preferred-source-core';
 import type {
   PreferredSourceTheme,
   PsClickDetail,
   SdkMode,
-} from '@opace/preferred-source-core';
+} from '@opacedev/preferred-source-core';
 import { styles } from './styles';
 
 const DEFAULT_LABEL = 'Add as a preferred source on Google';

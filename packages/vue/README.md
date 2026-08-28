@@ -6,9 +6,9 @@
 
 _Variant gallery: Vue and Nuxt mount the same trigger and deeplink fallback._
 
-`@opace/vue-preferred-source` provides a Vue 3 component, `usePreferredSource()` composable and global plugin. It loads the SDK in `onMounted` and falls back to the documented deeplink when necessary.
+`@opacedev/vue-preferred-source` provides a Vue 3 component, `usePreferredSource()` composable and global plugin. It loads the SDK in `onMounted` and falls back to the documented deeplink when necessary.
 
-**Status:** built and tested in this repository, but **not published to npm**. The future command is `npm i @opace/vue-preferred-source`; use the workspace first.
+Install from npm with `npm i @opacedev/vue-preferred-source`.
 
 ## Why publishers use Preferred Sources
 
@@ -20,12 +20,12 @@ That is personalisation for the individual reader, not a site-wide ranking facto
 
 ```sh
 pnpm install
-pnpm --filter @opace/vue-preferred-source build
+pnpm --filter @opacedev/vue-preferred-source build
 ```
 
 ```vue
 <script setup>
-import { PreferredSourceButton } from "@opace/vue-preferred-source";
+import { PreferredSourceButton } from "@opacedev/vue-preferred-source";
 </script>
 
 <template>
@@ -42,7 +42,7 @@ import { PreferredSourceButton } from "@opace/vue-preferred-source";
 import {
   PreferredSourcePlugin,
   usePreferredSource,
-} from "@opace/vue-preferred-source";
+} from "@opacedev/vue-preferred-source";
 
 const { status, open, deeplink } = usePreferredSource({
   theme: "light",

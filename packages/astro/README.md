@@ -6,9 +6,9 @@
 
 _Variant gallery: the Astro integration supports the same rendered buttons and deeplink fallback._
 
-`@opace/astro-preferred-source` injects the publisher script for static sites and provides server-rendered button and deeplink components backed by the shared core.
+`@opacedev/astro-preferred-source` injects the publisher script for static sites and provides server-rendered button and deeplink components backed by the shared core.
 
-**Status:** built and tested in this repository, but **not published to npm**. The future command is `npm i @opace/astro-preferred-source`; use the workspace first.
+Install from npm with `npm i @opacedev/astro-preferred-source`.
 
 ## Why publishers use Preferred Sources
 
@@ -20,13 +20,13 @@ That is personalisation for the individual reader, not a site-wide ranking facto
 
 ```sh
 pnpm install
-pnpm --filter @opace/astro-preferred-source typecheck
+pnpm --filter @opacedev/astro-preferred-source typecheck
 ```
 
 ```js
 // astro.config.mjs
 import { defineConfig } from "astro/config";
-import preferredSource from "@opace/astro-preferred-source";
+import preferredSource from "@opacedev/astro-preferred-source";
 
 export default defineConfig({
   integrations: [preferredSource({ theme: "dark", lang: "en" })],
@@ -35,7 +35,7 @@ export default defineConfig({
 
 ```astro
 ---
-import { PreferredSourceButton, PreferredSourceLink } from '@opace/astro-preferred-source/components';
+import { PreferredSourceButton, PreferredSourceLink } from '@opacedev/astro-preferred-source/components';
 ---
 
 <PreferredSourceButton />

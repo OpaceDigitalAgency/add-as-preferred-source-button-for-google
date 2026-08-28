@@ -1,10 +1,10 @@
 {
-  "name": "@opace/svelte-preferred-source",
+  "name": "@opacedev/svelte-preferred-source",
   "version": "1.0.0",
   "description": "Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) for Svelte and SvelteKit: SSR-safe component, fallback and ps-click instrumentation.",
   "license": "MIT",
   "author": "Opace Ltd (https://www.opace.agency)",
-  "homepage": "https://opace.agency/add-as-preferred-source-button-for-google/button-generator/",
+  "homepage": "https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google.git",
@@ -54,7 +54,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@opace/preferred-source-core": "workspace:^"
+    "@opacedev/preferred-source-core": "workspace:^"
   },
   "peerDependencies": {
     "svelte": "^4.0.0 || ^5.0.0"

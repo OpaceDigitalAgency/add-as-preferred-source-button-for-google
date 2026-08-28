@@ -8,7 +8,7 @@ _Variant gallery: the web component is the rendered control used for each presen
 
 `<preferred-source-button>` brings the official popup trigger, deeplink fallback and `ps-click` event to plain HTML, Angular and other HTML-capable frameworks.
 
-**Status:** built and tested in this repository, but **not published to npm**. Do not use unpkg or `npm i @opace/preferred-source-element` until publication.
+Install from npm with `npm i @opacedev/preferred-source-element`.
 
 ## Why publishers use Preferred Sources
 
@@ -20,11 +20,11 @@ That is personalisation for the individual reader, not a site-wide ranking facto
 
 ```sh
 pnpm install
-pnpm --filter @opace/preferred-source-element build
+pnpm --filter @opacedev/preferred-source-element build
 ```
 
 ```js
-import "@opace/preferred-source-element/register";
+import "@opacedev/preferred-source-element/register";
 ```
 
 ```html

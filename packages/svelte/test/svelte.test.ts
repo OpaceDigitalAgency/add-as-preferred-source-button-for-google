@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, fireEvent, render } from '@testing-library/svelte';
-import { resetSdkLoaderForTests } from '@opace/preferred-source-core';
-import type { PsClickDetail } from '@opace/preferred-source-core';
+import { resetSdkLoaderForTests } from '@opacedev/preferred-source-core';
+import type { PsClickDetail } from '@opacedev/preferred-source-core';
 import PreferredSourceButton from '../src/lib/PreferredSourceButton.svelte';
 
 beforeEach(() => {

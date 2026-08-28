@@ -1,4 +1,4 @@
-# @opace/preferred-source-core
+# @opacedev/preferred-source-core
 
 ## 1.0.0
 
