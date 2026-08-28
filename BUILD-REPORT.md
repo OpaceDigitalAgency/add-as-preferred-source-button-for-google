@@ -57,7 +57,7 @@ Re-verified after the pass: `pnpm build`, `pnpm typecheck`, `pnpm lint` all clea
 - The Astro peer range now supports `^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0`. Fresh scratch projects installed the locally packed core and Astro packages and completed production builds on Astro 4.16.19, 5.18.2, 6.4.8 and 7.2.9.
 - The initial Changeset uses a major bump for all six unpublished `0.1.0` manifests. `changeset status` resolves every package to exactly `1.0.0`, matching the existing public GitHub release, without applying the version changes locally.
 - `pnpm install --frozen-lockfile`, build, 70 tests, typecheck and lint passed. All six `npm pack --dry-run --json` checks returned exit 0 with the intended README, licence, artwork and build/source files.
-- Publication remains owner-gated: local npm authentication is invalid, `@opace` ownership is unverified, and GitHub Actions is currently prohibited from creating the Changesets version pull request. No package was published.
+- At this preflight point, publication remained owner-gated: local npm authentication was invalid, `@opace` ownership was unverified, and GitHub Actions was prohibited from creating the Changesets version pull request. No package was published.
 
 ## Manual Version Packages branch (28 August 2026, fifth pass)
 
@@ -66,6 +66,7 @@ Re-verified after the pass: `pnpm build`, `pnpm typecheck`, `pnpm lint` all clea
 - Added a package-specific `CHANGELOG.md` to every package and included it in each published file set.
 - Fresh verification on the versioned branch passes: frozen install, all six builds, 12 test files / 70 tests, typecheck, lint and six package dry-runs. Dry-runs report 1.0.0 and include the changelog: core 14 files, element 20, React 14, Vue 15, Svelte 13 and Astro 13.
 - The branch is open as [Version Packages PR #1](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/pull/1). Its GitHub `CI / ci` check succeeded and GitHub reports it ready to merge.
+- Repository Settings → Actions now allows GitHub Actions to create and approve pull requests. The earlier Changesets permission failure is resolved for future releases; the manually prepared PR remains the reviewed 1.0.0 path.
 - This branch is a reviewable release checkpoint only. Do not merge it until David has authenticated npm, confirmed owner/admin authority over `@opace`, approved the irreversible first publication and supplied the release workflow with an appropriate credential or trusted-publishing setup.
 
 ## Deviations and deferrals
