@@ -67,6 +67,7 @@ Re-verified after the pass: `pnpm build`, `pnpm typecheck`, `pnpm lint` all clea
 - Fresh verification on the versioned branch passes: frozen install, all six builds, 12 test files / 70 tests, typecheck, lint and six package dry-runs. Dry-runs report 1.0.0 and include the changelog: core 14 files, element 20, React 14, Vue 15, Svelte 13 and Astro 13.
 - The branch is open as [Version Packages PR #1](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/pull/1). Its GitHub `CI / ci` check succeeded and GitHub reports it ready to merge.
 - Repository Settings → Actions now allows GitHub Actions to create and approve pull requests. The earlier Changesets permission failure is resolved for future releases; the manually prepared PR remains the reviewed 1.0.0 path.
+- Repository Actions secrets currently contains no repository or environment secrets and no `NPM_TOKEN`. The signed-in Chrome profile also receives `ERR_BLOCKED_BY_CLIENT` from `www.npmjs.com`, while the local npm credential returns E401. David must restore npm account access and create/configure the first-publish credential before the PR can be merged safely.
 - This branch is a reviewable release checkpoint only. Do not merge it until David has authenticated npm, confirmed owner/admin authority over `@opace`, approved the irreversible first publication and supplied the release workflow with an appropriate credential or trusted-publishing setup.
 
 ## Deviations and deferrals
