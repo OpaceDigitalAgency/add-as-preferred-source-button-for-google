@@ -1,6 +1,6 @@
 # Add as Preferred Source Button & Popup for Google (SEO & AI Overviews) — framework packages
 
-![Add as Preferred Source Button & Popup for Google (SEO & AI Overviews)](.github/assets/add-as-preferred-source-button-popup-google-hero.png)
+![Add as Preferred Source Button and Popup for Google framework components for Astro, React, Vue, Svelte and web components](.github/assets/add-as-preferred-source-button-popup-google-hero.png)
 
 ![Shared live demo capture showing the Preferred Sources button and suite status](docs/assets/preferred-source-button-popup-live-demo-1905x871.png)
 
@@ -8,9 +8,9 @@ _Shared live component demo capture: the suite's button trigger on the public Gi
 
 An open-source TypeScript suite for adding Google's Preferred Sources button to publisher sites, with SSR-safe framework bindings and a deeplink fallback when the external SDK cannot render.
 
-**Need WordPress or a site audit instead?** Use the [full WordPress plugin](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) for placements, triggers, analytics, multisite and consent controls, or the [Chrome Site Checker](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) to audit an existing implementation. This repository is the developer framework and reference-recipe layer.
+**Need WordPress or a site audit instead?** Use the [full WordPress plugin](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) for placements, triggers, analytics, multisite and consent controls, or [install the Chrome Site Checker](https://chromewebstore.google.com/detail/add-as-preferred-source-b/dnifhlampnjpfigeniaoihblbdegijgp) to audit an existing implementation. This repository is the developer framework and reference-recipe layer.
 
-[WordPress plugin](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) · [Chrome Site Checker](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) · [Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Live component demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/)
+[WordPress plugin](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) · [Chrome Site Checker](https://chromewebstore.google.com/detail/add-as-preferred-source-b/dnifhlampnjpfigeniaoihblbdegijgp) · [Chrome source](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) · [Product hub](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/) · [Live component demo](https://opacedigitalagency.github.io/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-checker/)
 
 [CI workflow](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google/actions/workflows/ci.yml) · [![MIT licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 
@@ -30,26 +30,26 @@ _Six tested presentation examples: Google-default, Google-colours and neutral va
 
 ## Framework coverage
 
-| Use case                                                   | Source                                  | Install                                 |
-| ---------------------------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Use case                                                   | Source                                  | Install                                    |
+| ---------------------------------------------------------- | --------------------------------------- | ------------------------------------------ |
 | Low-level TypeScript                                       | [`packages/core`](packages/core/)       | `npm i @opacedev/preferred-source-core`    |
 | Web component, vanilla JS or Angular                       | [`packages/element`](packages/element/) | `npm i @opacedev/preferred-source-element` |
 | React and Next.js                                          | [`packages/react`](packages/react/)     | `npm i @opacedev/react-preferred-source`   |
 | Vue 3 and Nuxt                                             | [`packages/vue`](packages/vue/)         | `npm i @opacedev/vue-preferred-source`     |
 | Svelte and SvelteKit                                       | [`packages/svelte`](packages/svelte/)   | `npm i @opacedev/svelte-preferred-source`  |
 | Astro integration and components                           | [`packages/astro`](packages/astro/)     | `npm i @opacedev/astro-preferred-source`   |
-| Hugo, Jekyll, Eleventy, Ghost, Webflow, Framer and Shopify | [`recipes/`](recipes/)                  | No package planned                      |
+| Hugo, Jekyll, Eleventy, Ghost, Webflow, Framer and Shopify | [`recipes/`](recipes/)                  | No package planned                         |
 
 Angular and other frameworks can use the web component. The recipes are reference implementations, not platform-certified integrations.
 
 ## Packages, recipes and publishing destinations
 
-| Surface | What it is | Where it goes |
-| --- | --- | --- |
-| Framework package | Versioned TypeScript/component source with tests, types and a package contract. | Install from npm; source, issues and release history stay in this monorepo. |
-| Reference recipe | A checked-in copy-and-adapt snippet for a platform without a maintained package. | Public GitHub documentation inside [`recipes/`](recipes/); copied into the publisher's own theme or project. |
-| WordPress plugin | The managed WordPress product with placements, triggers, analytics, consent and agency controls. | Its [separate GitHub repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) and WordPress.org listing. |
-| Chrome Site Checker | A local browser audit companion; it does not install the button. | Its [separate GitHub repository](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension) and Chrome Web Store listing. |
+| Surface             | What it is                                                                                       | Where it goes                                                                                                                                                                                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Framework package   | Versioned TypeScript/component source with tests, types and a package contract.                  | Install from npm; source, issues and release history stay in this monorepo.                                                                                                                                                                                                          |
+| Reference recipe    | A checked-in copy-and-adapt snippet for a platform without a maintained package.                 | Public GitHub documentation inside [`recipes/`](recipes/); copied into the publisher's own theme or project.                                                                                                                                                                         |
+| WordPress plugin    | The managed WordPress product with placements, triggers, analytics, consent and agency controls. | Its [separate GitHub repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin) and WordPress.org listing.                                                                                                                        |
+| Chrome Site Checker | A local browser audit companion; it does not install the button.                                 | [Install it from the Chrome Web Store](https://chromewebstore.google.com/detail/add-as-preferred-source-b/dnifhlampnjpfigeniaoihblbdegijgp) or inspect its [separate GitHub repository](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension). |
 
 Recipes do not become separate sites or npm packages. Their local screenshots prove that the checked-in snippet renders the documented placeholder; final Google behaviour must still be checked on an eligible public domain.
 
@@ -115,8 +115,9 @@ Choose the framework-specific package in the coverage table. Use `@opacedev/pref
 
 ## Related Opace products
 
-- [Preferred Sources product hub](https://opace.agency/add-as-preferred-source-button-for-google/)
+- [Preferred Sources product hub](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/)
 - [WordPress plugin repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin)
+- [Install the Chrome Site Checker](https://chromewebstore.google.com/detail/add-as-preferred-source-b/dnifhlampnjpfigeniaoihblbdegijgp)
 - [Chrome extension repository](https://github.com/OpaceDigitalAgency/preferred-source-checker-for-google-chrome-extension)
 - [Opace Digital Agency on GitHub](https://github.com/OpaceDigitalAgency)
 

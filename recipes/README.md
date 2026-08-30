@@ -8,11 +8,11 @@ _The common outcome across the recipes: a visible, accessible Google Preferred S
 
 These are public GitHub implementation guides for platforms that do not need a maintained JavaScript package. A recipe is copied into the publisher's own theme or site project; it is not a separate hosted page, app, plugin or npm package.
 
-| Choose | When it fits | Destination |
-| --- | --- | --- |
-| A framework package | You use TypeScript, React, Vue, Svelte, Astro or a web component and want types, lifecycle handling, tests and releases. | Install the matching npm package; source and release history are in [`packages/`](../packages/). |
-| A reference recipe | You use Hugo, Jekyll, Eleventy, Ghost, Webflow, Framer or Shopify and want the smallest copy-and-adapt implementation. | The platform's theme, template or custom-code area. |
-| The WordPress plugin | You need managed placement, conversion triggers, analytics, consent or multisite controls. | [Separate WordPress repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin). |
+| Choose               | When it fits                                                                                                             | Destination                                                                                                                        |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| A framework package  | You use TypeScript, React, Vue, Svelte, Astro or a web component and want types, lifecycle handling, tests and releases. | Install the matching npm package; source and release history are in [`packages/`](../packages/).                                   |
+| A reference recipe   | You use Hugo, Jekyll, Eleventy, Ghost, Webflow, Framer or Shopify and want the smallest copy-and-adapt implementation.   | The platform's theme, template or custom-code area.                                                                                |
+| The WordPress plugin | You need managed placement, conversion triggers, analytics, consent or multisite controls.                               | [Separate WordPress repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin). |
 
 ## Why publishers add the button
 
@@ -62,4 +62,4 @@ These are reference recipes, not recorded tests of every hosted platform version
 
 ---
 
-[Product hub](https://opace.agency/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/add-as-preferred-source-button-for-google/button-checker/) · [Google implementation guide](https://developers.google.com/search/docs/appearance/preferred-sources) · [Source repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [Opace support](https://opace.agency/add-as-preferred-source-button-for-google/) · [MIT licence](../LICENSE)
+[Product hub](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/) · [Button generator](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-generator/) · [Eligibility checker](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/button-checker/) · [Install the Chrome Site Checker](https://chromewebstore.google.com/detail/add-as-preferred-source-b/dnifhlampnjpfigeniaoihblbdegijgp) · [Google implementation guide](https://developers.google.com/search/docs/appearance/preferred-sources) · [Source repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google) · [Opace SEO services](https://opace.agency/services/seo/) · [Opace on GitHub](https://github.com/OpaceDigitalAgency) · [Opace support](https://opace.agency/tools/suite/add-as-preferred-source-button-for-google/) · [MIT licence](../LICENSE)
