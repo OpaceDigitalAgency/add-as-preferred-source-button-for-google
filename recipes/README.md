@@ -13,6 +13,7 @@ These are public GitHub implementation guides for platforms that do not need a m
 | A framework package  | You use TypeScript, React, Vue, Svelte, Astro or a web component and want types, lifecycle handling, tests and releases. | Install the matching npm package; source and release history are in [`packages/`](../packages/).                                   |
 | A reference recipe   | You use Hugo, Jekyll, Eleventy, Ghost, Webflow, Framer or Shopify and want the smallest copy-and-adapt implementation.   | The platform's theme, template or custom-code area.                                                                                |
 | The WordPress plugin | You need managed placement, conversion triggers, analytics, consent or multisite controls.                               | [Separate WordPress repository](https://github.com/OpaceDigitalAgency/add-as-preferred-source-button-for-google-wordpress-plugin). |
+| Chrome Site Checker | You want to audit a live implementation before changing its code. | [Install the free Chrome extension](https://chromewebstore.google.com/detail/add-as-preferred-source-b/dnifhlampnjpfigeniaoihblbdegijgp). |
 
 ## Why publishers add the button
 

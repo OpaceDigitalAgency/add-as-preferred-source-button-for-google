@@ -10,6 +10,8 @@ _Local Framer-compatible React code-component rendering: the checked-in componen
 
 This self-contained Framer code component uses Google's documented manual mode. It has no package dependency.
 
+> **Audit a live implementation.** [Install the free Preferred Source Checker for Chrome](https://chromewebstore.google.com/detail/add-as-preferred-source-b/dnifhlampnjpfigeniaoihblbdegijgp).
+
 ## Why this matters for publishers
 
 Google says fresh and relevant content from a reader's selected source is more likely to appear in that reader's **Top Stories** and may receive a preferred badge in **AI Mode** and **AI Overviews**. Google also reports roughly twice the click-through after a user selects a source.
